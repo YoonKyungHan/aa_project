@@ -1,0 +1,1077 @@
+openapi: 3.0.3
+info:
+  title: 'AA작업 API Documentation'
+  description: 'This is the API documentation for AA작업.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /admin/users:
+    get:
+      summary: '사용자 목록 조회'
+      operationId: ''
+      description: '페이지네이션된 사용자 목록을 반환합니다.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  -
+                    description: '토큰 없음'
+                    type: object
+                    example:
+                      message: '로그인이 필요한 서비스입니다.'
+                      code: UNAUTHORIZED
+                    properties:
+                      message:
+                        type: string
+                        example: '로그인이 필요한 서비스입니다.'
+                      code:
+                        type: string
+                        example: UNAUTHORIZED
+                  -
+                    description: ''
+                    type: object
+                    example:
+                      message: Unauthenticated.
+                    properties:
+                      message:
+                        type: string
+                        example: Unauthenticated.
+      tags:
+        - '사용자 관리'
+  /admin/users/data:
+    get:
+      summary: '사용자 데이터 조회'
+      operationId: ''
+      description: 'DataTables에 사용될 사용자 데이터를 JSON 형식으로 반환합니다.'
+      parameters:
+        -
+          in: query
+          name: draw
+          description: '데이터 요청 횟수.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: '데이터 요청 횟수.'
+            example: 1
+        -
+          in: query
+          name: start
+          description: '시작 레코드 번호.'
+          example: 0
+          required: false
+          schema:
+            type: integer
+            description: '시작 레코드 번호.'
+            example: 0
+        -
+          in: query
+          name: length
+          description: '페이지당 레코드 수.'
+          example: 10
+          required: false
+          schema:
+            type: integer
+            description: '페이지당 레코드 수.'
+            example: 10
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  draw: 1
+                  recordsTotal: 50
+                  recordsFiltered: 50
+                  data:
+                    -
+                      id: 1
+                      name: 'John Doe'
+                      email: john@example.com
+                      actions: "<a href='/admin/users/1/edit' class='btn btn-sm btn-primary'>Edit</a>"
+                properties:
+                  draw:
+                    type: integer
+                    example: 1
+                  recordsTotal:
+                    type: integer
+                    example: 50
+                  recordsFiltered:
+                    type: integer
+                    example: 50
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'John Doe'
+                        email: john@example.com
+                        actions: "<a href='/admin/users/1/edit' class='btn btn-sm btn-primary'>Edit</a>"
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'John Doe'
+                        email:
+                          type: string
+                          example: john@example.com
+                        actions:
+                          type: string
+                          example: "<a href='/admin/users/1/edit' class='btn btn-sm btn-primary'>Edit</a>"
+      tags:
+        - '사용자 관리'
+  '/admin/users/{id}/edit':
+    get:
+      summary: '사용자 편집 페이지'
+      operationId: ''
+      description: '특정 사용자의 편집 페이지를 반환합니다.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '사용자 관리'
+    parameters:
+      -
+        in: path
+        name: id
+        description: '사용자의 ID.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/admin/users/{id}':
+    put:
+      summary: '사용자 정보 업데이트'
+      operationId: ''
+      description: '특정 사용자의 정보를 업데이트합니다.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User updated successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'User updated successfully.'
+      tags:
+        - '사용자 관리'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '사용자의 이름.'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: '사용자의 이메일.'
+                  example: john@example.com
+                password:
+                  type: string
+                  description: '사용자의 새 비밀번호 (선택적).'
+                  example: '>.>;DN,M?jES['
+              required:
+                - name
+                - email
+    parameters:
+      -
+        in: path
+        name: id
+        description: '사용자의 ID.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /admin:
+    get:
+      summary: '로그인 페이지로 리다이렉트'
+      operationId: ''
+      description: '로그인 페이지로 리다이렉트합니다.'
+      parameters: []
+      responses:
+        302:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <meta charset=\"UTF-8\" />\r\n        <meta http-equiv=\"refresh\" content=\"0;url='http://localhost/admin/login'\" />\r\n\r\n        <title>Redirecting to http://localhost/admin/login</title>\r\n    </head>\r\n    <body>\r\n        Redirecting to <a href=\"http://localhost/admin/login\">http://localhost/admin/login</a>.\r\n    </body>\r\n</html>"
+      tags:
+        - '사용자 관리'
+  /admin/login:
+    get:
+      summary: '로그인 페이지'
+      operationId: ''
+      description: '로그인 페이지를 반환합니다.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<style>\r\n        body {\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            margin: 0;\r\n            background-color: #f4f6f9;\r\n        }\r\n        .login-box {\r\n            width: 360px;\r\n            margin: 0;\r\n        }\r\n        .card {\r\n            box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);\r\n        }\r\n        .login-card-body {\r\n            padding: 20px;\r\n        }\r\n        .login-logo {\r\n            margin-bottom: 20px;\r\n        }\r\n        .social-auth-links {\r\n            margin-top: 20px;\r\n        }\r\n    </style>\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n\r\n    \r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n    \r\n    \r\n    \r\n    <title>\r\n                AdminLTE 3            </title>\r\n\r\n    \r\n    \r\n    \r\n            <link rel=\"stylesheet\" href=\"http://localhost/vendor/fontawesome-free/css/all.min.css\">\r\n        <link rel=\"stylesheet\" href=\"http://localhost/vendor/overlayScrollbars/css/OverlayScrollbars.min.css\">\r\n        <link rel=\"stylesheet\" href=\"http://localhost/vendor/adminlte/dist/css/adminlte.min.css\">\r\n\r\n                    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">\r\n            \r\n    \r\n    <link rel=\"stylesheet\" href=\"//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css\">\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <link rel=\"stylesheet\" href=\"//cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css\">\r\n            \r\n            \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n    \r\n            \r\n    \r\n    \r\n</head>\r\n\r\n<body class=\"\" >\r\n\r\n    \r\n    <div class=\"login-box\">\r\n    <div class=\"card\">\r\n        <div class=\"card-body login-card-body\">\r\n            <div class=\"login-logo\">\r\n                <a href=\"#\"><b>Admin</b>LTE</a>\r\n            </div>\r\n            <p class=\"login-box-msg\">Sign in to start your session</p>\r\n            <form action=\"http://localhost/admin/login\" method=\"POST\" onsubmit=\"return handleLogin(event)\">\r\n                <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">                <div class=\"input-group mb-3\">\r\n                    <input type=\"name\" class=\"form-control\" placeholder=\"name\" name=\"name\" required>\r\n                    <div class=\"input-group-append\">\r\n                        <div class=\"input-group-text\">\r\n                            <span class=\"fas fa-envelope\"></span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"input-group mb-3\">\r\n                    <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\" required>\r\n                    <div class=\"input-group-append\">\r\n                        <div class=\"input-group-text\">\r\n                            <span class=\"fas fa-lock\"></span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-8\">\r\n                        <div class=\"icheck-primary\">\r\n                            <input type=\"checkbox\" id=\"remember\">\r\n                            <label for=\"remember\">Remember Me</label>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-4\">\r\n                        <button type=\"submit\" class=\"btn btn-primary btn-block\">Sign In</button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n            <div class=\"social-auth-links text-center mb-3\">\r\n                <p>- OR -</p>\r\n                <a href=\"#\" class=\"btn btn-block btn-primary\">\r\n                    <i class=\"fab fa-facebook mr-2\"></i> Sign in using Facebook\r\n                </a>\r\n                <a href=\"#\" class=\"btn btn-block btn-danger\">\r\n                    <i class=\"fab fa-google-plus mr-2\"></i> Sign in using Google+\r\n                </a>\r\n            </div>\r\n            <p class=\"mb-1\"><a href=\"#\">I forgot my password</a></p>\r\n            <p class=\"mb-0\"><a href=\"#\" class=\"text-center\">Register a new membership</a></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<script>\r\n    function handleLogin(event) {\r\n        // event.preventDefault();\r\n        // const form = event.target;\r\n        // const formData = new FormData(form);\r\n\r\n        // fetch(form.action, {\r\n        //     method: 'POST',\r\n        //     body: formData,\r\n        //     headers: {\r\n        //         'X-Requested-With': 'XMLHttpRequest',\r\n        //         'X-CSRF-TOKEN': 'pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr'\r\n        //     }\r\n        // })\r\n        // .then(response => {\r\n        //     if (!response.ok) {\r\n        //         throw new Error('Login failed');\r\n        //     }\r\n        //     return response.json();\r\n        // })\r\n        // .catch(error => {\r\n        //     alert('로그인할수 없습니다.');\r\n        // });\r\n    }\r\n</script>\r\n\r\n    \r\n            <script src=\"http://localhost/vendor/jquery/jquery.min.js\"></script>\r\n        <script src=\"http://localhost/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>\r\n        <script src=\"http://localhost/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js\"></script>\r\n        <script src=\"http://localhost/vendor/adminlte/dist/js/adminlte.min.js\"></script>\r\n    \r\n    \r\n    <script src=\"//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n            \r\n            \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n    \r\n            \r\n</body>\r\n\r\n</html>\r\n"
+      tags:
+        - '사용자 관리'
+    post:
+      summary: '로그인 페이지'
+      operationId: ''
+      description: '로그인 페이지를 반환합니다.'
+      parameters: []
+      responses: {  }
+      tags:
+        - '사용자 관리'
+  /_debugbar/open:
+    get:
+      summary: ''
+      operationId: get_debugbarOpen
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - ''
+  '/_debugbar/clockwork/{id}':
+    get:
+      summary: 'Return Clockwork output'
+      operationId: returnClockworkOutput
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - ''
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the clockwork.'
+        example: occaecati
+        required: true
+        schema:
+          type: string
+  /_debugbar/assets/stylesheets:
+    get:
+      summary: 'Return the stylesheets for the Debugbar'
+      operationId: returnTheStylesheetsForTheDebugbar
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - ''
+  /_debugbar/assets/javascript:
+    get:
+      summary: 'Return the javascript for the Debugbar'
+      operationId: returnTheJavascriptForTheDebugbar
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - ''
+  '/_debugbar/cache/{key}/{tags}':
+    delete:
+      summary: 'Forget a cache key'
+      operationId: forgetACacheKey
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+    parameters:
+      -
+        in: path
+        name: key
+        description: ''
+        example: maxime
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: tags
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: tempora
+  /adminlte/darkmode/toggle:
+    post:
+      summary: 'Toggle the dark mode preference.'
+      operationId: toggleTheDarkModePreference
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /login:
+    get:
+      summary: 'Show the login view.'
+      operationId: showTheLoginView
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA작업</title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https://fonts.bunny.net\">\r\n        <link href=\"https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" />\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http://[::1]:5173/@vite/client\"></script><link rel=\"stylesheet\" href=\"http://[::1]:5173/resources/css/app.css\" /><script type=\"module\" src=\"http://[::1]:5173/resources/js/app.js\"></script>    </head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"/>\r\n    </svg>\r\n</a>\r\n    </div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <form method=\"POST\" action=\"http://localhost/login\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <div>\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"username\">\r\n            </div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password\">\r\n    Password\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password\" type=\"password\" name=\"password\" required=\"required\" autocomplete=\"current-password\">\r\n            </div>\r\n\r\n            <div class=\"block mt-4\">\r\n                <label for=\"remember_me\" class=\"flex items-center\">\r\n                    <input type=\"checkbox\" class=\"rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500\" id=\"remember_me\" name=\"remember\">\r\n                    <span class=\"ml-2 text-sm text-gray-600\">Remember me</span>\r\n                </label>\r\n            </div>\r\n\r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                                    <a class=\"underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\" href=\"http://localhost/forgot-password\">\r\n                        Forgot your password?\r\n                    </a>\r\n                \r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4\">\r\n    Log in\r\n</button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n        </div>\r\n    </body>\r\n</html>\r\n"
+      tags:
+        - ''
+    post:
+      summary: 'Attempt to authenticate a new session.'
+      operationId: attemptToAuthenticateANewSession
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: schmeler.aiyana@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: '3^|{20]z'
+              required:
+                - email
+                - password
+  /logout:
+    post:
+      summary: 'Destroy an authenticated session.'
+      operationId: destroyAnAuthenticatedSession
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /forgot-password:
+    get:
+      summary: 'Show the reset password link request view.'
+      operationId: showTheResetPasswordLinkRequestView
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA작업</title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https://fonts.bunny.net\">\r\n        <link href=\"https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" />\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http://[::1]:5173/@vite/client\"></script><link rel=\"stylesheet\" href=\"http://[::1]:5173/resources/css/app.css\" /><script type=\"module\" src=\"http://[::1]:5173/resources/js/app.js\"></script>    </head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"/>\r\n    </svg>\r\n</a>\r\n    </div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <div class=\"mb-4 text-sm text-gray-600\">\r\n            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.\r\n        </div>\r\n\r\n        \r\n        \r\n        <form method=\"POST\" action=\"http://localhost/forgot-password\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <div class=\"block\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"username\">\r\n            </div>\r\n\r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150\">\r\n    Email Password Reset Link\r\n</button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n        </div>\r\n    </body>\r\n</html>\r\n"
+      tags:
+        - ''
+    post:
+      summary: 'Send a reset link to the given user.'
+      operationId: sendAResetLinkToTheGivenUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  '/reset-password/{token}':
+    get:
+      summary: 'Show the new password view.'
+      operationId: showTheNewPasswordView
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA작업</title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https://fonts.bunny.net\">\r\n        <link href=\"https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" />\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http://[::1]:5173/@vite/client\"></script><link rel=\"stylesheet\" href=\"http://[::1]:5173/resources/css/app.css\" /><script type=\"module\" src=\"http://[::1]:5173/resources/js/app.js\"></script>    </head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"/>\r\n    </svg>\r\n</a>\r\n    </div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <form method=\"POST\" action=\"http://localhost/reset-password\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <input type=\"hidden\" name=\"token\" value=\"iste\">\r\n\r\n            <div class=\"block\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"username\">\r\n            </div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password\">\r\n    Password\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password\" type=\"password\" name=\"password\" required=\"required\" autocomplete=\"new-password\">\r\n            </div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password_confirmation\">\r\n    Confirm Password\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password_confirmation\" type=\"password\" name=\"password_confirmation\" required=\"required\" autocomplete=\"new-password\">\r\n            </div>\r\n\r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150\">\r\n    Reset Password\r\n</button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n        </div>\r\n    </body>\r\n</html>\r\n"
+      tags:
+        - ''
+    parameters:
+      -
+        in: path
+        name: token
+        description: ''
+        example: iste
+        required: true
+        schema:
+          type: string
+  /reset-password:
+    post:
+      summary: "Reset the user's password."
+      operationId: resetTheUsersPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: est
+                password:
+                  type: string
+                  description: ''
+                  example: ut
+              required:
+                - token
+                - password
+  /register:
+    get:
+      summary: 'Show the registration view.'
+      operationId: showTheRegistrationView
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA작업</title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https://fonts.bunny.net\">\r\n        <link href=\"https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" />\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http://[::1]:5173/@vite/client\"></script><link rel=\"stylesheet\" href=\"http://[::1]:5173/resources/css/app.css\" /><script type=\"module\" src=\"http://[::1]:5173/resources/js/app.js\"></script>    </head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"/>\r\n    </svg>\r\n</a>\r\n    </div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <form method=\"POST\" action=\"http://localhost/register\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <div>\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"name\">\r\n    Name\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"name\" type=\"text\" name=\"name\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"name\">\r\n            </div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autocomplete=\"username\">\r\n            </div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password\">\r\n    Password\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password\" type=\"password\" name=\"password\" required=\"required\" autocomplete=\"new-password\">\r\n            </div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password_confirmation\">\r\n    Confirm Password\r\n</label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password_confirmation\" type=\"password\" name=\"password_confirmation\" required=\"required\" autocomplete=\"new-password\">\r\n            </div>\r\n\r\n            \r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                <a class=\"underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\" href=\"http://localhost/login\">\r\n                    Already registered?\r\n                </a>\r\n\r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4\">\r\n    Register\r\n</button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n        </div>\r\n    </body>\r\n</html>\r\n"
+      tags:
+        - ''
+    post:
+      summary: 'Create a new registered user.'
+      operationId: createANewRegisteredUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/profile-information:
+    put:
+      summary: "Update the user's profile information."
+      operationId: updateTheUsersProfileInformation
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/password:
+    put:
+      summary: "Update the user's password."
+      operationId: updateTheUsersPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/confirm-password:
+    get:
+      summary: 'Show the confirm password view.'
+      operationId: showTheConfirmPasswordView
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+    post:
+      summary: "Confirm the user's password."
+      operationId: confirmTheUsersPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/confirmed-password-status:
+    get:
+      summary: 'Get the password confirmation status.'
+      operationId: getThePasswordConfirmationStatus
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+  /two-factor-challenge:
+    get:
+      summary: 'Show the two factor authentication challenge view.'
+      operationId: showTheTwoFactorAuthenticationChallengeView
+      description: ''
+      parameters: []
+      responses:
+        302:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <meta charset=\"UTF-8\" />\r\n        <meta http-equiv=\"refresh\" content=\"0;url='http://localhost/login'\" />\r\n\r\n        <title>Redirecting to http://localhost/login</title>\r\n    </head>\r\n    <body>\r\n        Redirecting to <a href=\"http://localhost/login\">http://localhost/login</a>.\r\n    </body>\r\n</html>"
+      tags:
+        - ''
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: explicabo
+                recovery_code:
+                  type: string
+                  description: ''
+                  example: exercitationem
+    post:
+      summary: 'Attempt to authenticate a new session using the two factor authentication code.'
+      operationId: attemptToAuthenticateANewSessionUsingTheTwoFactorAuthenticationCode
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: tenetur
+                recovery_code:
+                  type: string
+                  description: ''
+                  example: placeat
+  /user/two-factor-authentication:
+    post:
+      summary: 'Enable two factor authentication for the user.'
+      operationId: enableTwoFactorAuthenticationForTheUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+    delete:
+      summary: 'Disable two factor authentication for the user.'
+      operationId: disableTwoFactorAuthenticationForTheUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/confirmed-two-factor-authentication:
+    post:
+      summary: 'Enable two factor authentication for the user.'
+      operationId: enableTwoFactorAuthenticationForTheUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/two-factor-qr-code:
+    get:
+      summary: "Get the SVG element for the user's two factor authentication QR code."
+      operationId: getTheSVGElementForTheUsersTwoFactorAuthenticationQRCode
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+  /user/two-factor-secret-key:
+    get:
+      summary: "Get the current user's two factor authentication setup / secret key."
+      operationId: getTheCurrentUsersTwoFactorAuthenticationSetupSecretKey
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+  /user/two-factor-recovery-codes:
+    get:
+      summary: 'Get the two factor authentication recovery codes for authenticated user.'
+      operationId: getTheTwoFactorAuthenticationRecoveryCodesForAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+    post:
+      summary: 'Generate a fresh set of two factor authentication recovery codes.'
+      operationId: generateAFreshSetOfTwoFactorAuthenticationRecoveryCodes
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  /user/profile:
+    get:
+      summary: 'Show the user profile screen.'
+      operationId: showTheUserProfileScreen
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+  /sanctum/csrf-cookie:
+    get:
+      summary: 'Return an empty response simply to trigger the storage of the CSRF cookie in the browser.'
+      operationId: returnAnEmptyResponseSimplyToTriggerTheStorageOfTheCSRFCookieInTheBrowser
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - ''
+  '/livewire/message/{name}':
+    post:
+      summary: ''
+      operationId: postLivewireMessageName
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+    parameters:
+      -
+        in: path
+        name: name
+        description: ''
+        example: qui
+        required: true
+        schema:
+          type: string
+  '/{locale}/livewire/message/{name}':
+    post:
+      summary: ''
+      operationId: postLocaleLivewireMessageName
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+    parameters:
+      -
+        in: path
+        name: locale
+        description: ''
+        example: cy_GB
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: name
+        description: ''
+        example: aut
+        required: true
+        schema:
+          type: string
+  /livewire/upload-file:
+    post:
+      summary: ''
+      operationId: postLivewireUploadFile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+  '/livewire/preview-file/{filename}':
+    get:
+      summary: ''
+      operationId: getLivewirePreviewFileFilename
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - ''
+    parameters:
+      -
+        in: path
+        name: filename
+        description: ''
+        example: quia
+        required: true
+        schema:
+          type: string
+  /livewire/livewire.js:
+    get:
+      summary: ''
+      operationId: getLivewireLivewireJs
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ''
+      tags:
+        - ''
+  /livewire/livewire.js.map:
+    get:
+      summary: ''
+      operationId: getLivewireLivewireJsMap
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ''
+      tags:
+        - ''
+  /_ignition/health-check:
+    get:
+      summary: ''
+      operationId: get_ignitionHealthCheck
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - ''
+  /_ignition/execute-solution:
+    post:
+      summary: ''
+      operationId: post_ignitionExecuteSolution
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                solution:
+                  type: string
+                  description: ''
+                  example: illum
+                parameters:
+                  type: object
+                  description: ''
+                  example: null
+                  properties: {  }
+              required:
+                - solution
+  /_ignition/update-config:
+    post:
+      summary: ''
+      operationId: post_ignitionUpdateConfig
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - ''
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                theme:
+                  type: string
+                  description: ''
+                  example: dark
+                  enum:
+                    - light
+                    - dark
+                    - auto
+                editor:
+                  type: string
+                  description: ''
+                  example: voluptatum
+                hide_solutions:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - theme
+                - editor
+                - hide_solutions
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+  /:
+    get:
+      summary: ''
+      operationId: get
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA작업</title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https://fonts.bunny.net\">\r\n        <link href=\"https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" />\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http://[::1]:5173/@vite/client\"></script><link rel=\"stylesheet\" href=\"http://[::1]:5173/resources/css/app.css\" /><script type=\"module\" src=\"http://[::1]:5173/resources/js/app.js\"></script>    </head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen bg-gray-100 flex flex-col justify-center items-center\">\r\n        <div class=\"max-w-6xl mx-auto sm:px-6 lg:px-8\">\r\n            <div class=\"flex justify-center\">\r\n                <svg viewBox=\"0 0 317 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-20 h-20\">\r\n  <path d=\"M74.09 30.04V13h-4.14v21H82.1v-3.96h-8.01zM95.379 19v1.77c-1.08-1.35-2.7-2.19-4.89-2.19-3.99 0-7.29 3.45-7.29 7.92s3.3 7.92 7.29 7.92c2.19 0 3.81-.84 4.89-2.19V34h3.87V19h-3.87zm-4.17 11.73c-2.37 0-4.14-1.71-4.14-4.23 0-2.52 1.77-4.23 4.14-4.23 2.4 0 4.17 1.71 4.17 4.23 0 2.52-1.77 4.23-4.17 4.23zM106.628 21.58V19h-3.87v15h3.87v-7.17c0-3.15 2.55-4.05 4.56-3.81V18.7c-1.89 0-3.78.84-4.56 2.88zM124.295 19v1.77c-1.08-1.35-2.7-2.19-4.89-2.19-3.99 0-7.29 3.45-7.29 7.92s3.3 7.92 7.29 7.92c2.19 0 3.81-.84 4.89-2.19V34h3.87V19h-3.87zm-4.17 11.73c-2.37 0-4.14-1.71-4.14-4.23 0-2.52 1.77-4.23 4.14-4.23 2.4 0 4.17 1.71 4.17 4.23 0 2.52-1.77 4.23-4.17 4.23zM141.544 19l-3.66 10.5-3.63-10.5h-4.26l5.7 15h4.41l5.7-15h-4.26zM150.354 28.09h11.31c.09-.51.15-1.02.15-1.59 0-4.41-3.15-7.92-7.59-7.92-4.71 0-7.92 3.45-7.92 7.92s3.18 7.92 8.22 7.92c2.88 0 5.13-1.17 6.54-3.21l-3.12-1.8c-.66.87-1.86 1.5-3.36 1.5-2.04 0-3.69-.84-4.23-2.82zm-.06-3c.45-1.92 1.86-3.03 3.93-3.03 1.62 0 3.24.87 3.72 3.03h-7.65zM164.516 34h3.87V12.1h-3.87V34zM185.248 34.36c3.69 0 6.9-2.01 6.9-6.3V13h-2.1v15.06c0 3.03-2.07 4.26-4.8 4.26-2.19 0-3.93-.78-4.62-2.61l-1.77 1.05c1.05 2.43 3.57 3.6 6.39 3.6zM203.124 18.64c-4.65 0-7.83 3.45-7.83 7.86 0 4.53 3.24 7.86 7.98 7.86 3.03 0 5.34-1.41 6.6-3.45l-1.74-1.02c-.81 1.44-2.46 2.55-4.83 2.55-3.18 0-5.55-1.89-5.97-4.95h13.17c.03-.3.06-.63.06-.93 0-4.11-2.85-7.92-7.44-7.92zm0 1.92c2.58 0 4.98 1.71 5.4 5.01h-11.19c.39-2.94 2.64-5.01 5.79-5.01zM221.224 20.92V19h-4.32v-4.2l-1.98.6V19h-3.15v1.92h3.15v9.09c0 3.6 2.25 4.59 6.3 3.99v-1.74c-2.91.12-4.32.33-4.32-2.25v-9.09h4.32zM225.176 22.93c0-1.62 1.59-2.37 3.15-2.37 1.44 0 2.97.57 3.6 2.1l1.65-.96c-.87-1.86-2.79-3.06-5.25-3.06-3 0-5.13 1.89-5.13 4.29 0 5.52 8.76 3.39 8.76 7.11 0 1.77-1.68 2.4-3.45 2.4-2.01 0-3.57-.99-4.11-2.52l-1.68.99c.75 1.92 2.79 3.45 5.79 3.45 3.21 0 5.43-1.77 5.43-4.32 0-5.52-8.76-3.39-8.76-7.11zM244.603 20.92V19h-4.32v-4.2l-1.98.6V19h-3.15v1.92h3.15v9.09c0 3.6 2.25 4.59 6.3 3.99v-1.74c-2.91.12-4.32.33-4.32-2.25v-9.09h4.32zM249.883 21.49V19h-1.98v15h1.98v-8.34c0-3.72 2.34-4.98 4.74-4.98v-1.92c-1.92 0-3.69.63-4.74 2.73zM263.358 18.64c-4.65 0-7.83 3.45-7.83 7.86 0 4.53 3.24 7.86 7.98 7.86 3.03 0 5.34-1.41 6.6-3.45l-1.74-1.02c-.81 1.44-2.46 2.55-4.83 2.55-3.18 0-5.55-1.89-5.97-4.95h13.17c.03-.3.06-.63.06-.93 0-4.11-2.85-7.92-7.44-7.92zm0 1.92c2.58 0 4.98 1.71 5.4 5.01h-11.19c.39-2.94 2.64-5.01 5.79-5.01zM286.848 19v2.94c-1.26-2.01-3.39-3.3-6.06-3.3-4.23 0-7.74 3.42-7.74 7.86s3.51 7.86 7.74 7.86c2.67 0 4.8-1.29 6.06-3.3V34h1.98V19h-1.98zm-5.91 13.44c-3.33 0-5.91-2.61-5.91-5.94 0-3.33 2.58-5.94 5.91-5.94s5.91 2.61 5.91 5.94c0 3.33-2.58 5.94-5.91 5.94zM309.01 18.64c-1.92 0-3.75.87-4.86 2.73-.84-1.74-2.46-2.73-4.56-2.73-1.8 0-3.42.72-4.59 2.55V19h-1.98v15H295v-8.31c0-3.72 2.16-5.13 4.32-5.13 2.13 0 3.51 1.41 3.51 4.08V34h1.98v-8.31c0-3.72 1.86-5.13 4.17-5.13 2.13 0 3.66 1.41 3.66 4.08V34h1.98v-9.36c0-3.75-2.31-6-5.61-6z\" class=\"fill-black\"/>\r\n  <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"/>\r\n  <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"/>\r\n</svg>\r\n            </div>\r\n\r\n            <div class=\"mt-8 bg-white overflow-hidden shadow sm:rounded-lg\">\r\n                <div class=\"p-6\">\r\n                    <h1 class=\"text-3xl font-bold text-gray-900 mb-4\">\r\n                        Welcome to AA작업\r\n                    </h1>\r\n                    <p class=\"text-gray-600\">\r\n                        This is a more detailed welcome page. You can customize it further based on your needs.\r\n                    </p>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"flex justify-center mt-4 sm:items-center sm:justify-between\">\r\n                <div class=\"text-center text-sm text-gray-500 sm:text-left\">\r\n                    <div class=\"flex items-center\">\r\n                        <a href=\"http://localhost/login\" class=\"ml-1 underline\">\r\n                            Log in\r\n                        </a>\r\n\r\n                                                    <a href=\"http://localhost/register\" class=\"ml-4 underline\">\r\n                                Register\r\n                            </a>\r\n                                            </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n        </div>\r\n    </body>\r\n</html>\r\n"
+      tags:
+        - ''
+  /dashboard:
+    get:
+      summary: ''
+      operationId: getDashboard
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+  /admin/dashboard:
+    get:
+      summary: ''
+      operationId: getAdminDashboard
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - ''
+tags:
+  -
+    name: '사용자 관리'
+    description: "\n사용자 관리와 관련된 API 엔드포인트"
+  -
+    name: ''
+    description: ''

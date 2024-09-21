@@ -1,0 +1,386 @@
+name: '사용자 관리'
+description: |-
+
+  사용자 관리와 관련된 API 엔드포인트
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: admin/users
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '사용자 목록 조회'
+      description: '페이지네이션된 사용자 목록을 반환합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: |-
+          {
+           "message": "로그인이 필요한 서비스입니다.",
+           "code": "UNAUTHORIZED"
+          }
+        headers: []
+        description: '토큰 없음'
+        custom: []
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlUxMHlxaG9oS2FlZGo0Zk5GaEltMFE9PSIsInZhbHVlIjoiM09MMU5NODh5NHFmUGEyTzNZY09neFg4RENrbEtWTDFhejRTL21JdU1RSnhiMTdOWjMrRE9OdHNKUndITXhoeGZmc3lQY1ZqcXdxTHZvekxsVTI5c0FKaTlERkVIQUFIQVRyeXJFUFRYNkszQXF3b2VFVGpGeUxsVmZvTEpWMFMiLCJtYWMiOiIwMmVkOWZkYTVjYTgyZjNhZTAyODUzMjJiYmFjZmMyNjViYWViMTkxOTBiYzliNDVlYzgwNTAzMjRmOTVjOWEzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; samesite=lax; aa_session=eyJpdiI6ImxGZ1p6WHJqUG1EUUdUMGgzSWRrQlE9PSIsInZhbHVlIjoiU1Z6UmhtOE1RZk9pSHhXODNoVklEQmRyeENlRmV2UllhZlVnTFJic2txT1p0TzhUaUFvcU9mY2JaUnpOZDh2Nm93Rlp2c0UyNjJUZ254SzhZN2p1ZnMzNi9kVllRSEEvWFlPOXdRc2pFbWtDSmVVSTFzZVdhaVdNNTNKVnB3NTQiLCJtYWMiOiJlZmRlOTIzZDgxYzlhNDBhNTc1MTMzN2E5M2VmYzdjMWY5NDljNTY4YzVjZDg3OWNkZTVmMGViMGZjZmU5NmViIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: admin/users/data
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '사용자 데이터 조회'
+      description: 'DataTables에 사용될 사용자 데이터를 JSON 형식으로 반환합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      draw:
+        name: draw
+        description: '데이터 요청 횟수.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      start:
+        name: start
+        description: '시작 레코드 번호.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      length:
+        name: length
+        description: '페이지당 레코드 수.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanQueryParameters:
+      draw: 1
+      start: 0
+      length: 10
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "draw": 1,
+           "recordsTotal": 50,
+           "recordsFiltered": 50,
+           "data": [
+             {
+               "id": 1,
+               "name": "John Doe",
+               "email": "john@example.com",
+               "actions": "<a href='/admin/users/1/edit' class='btn btn-sm btn-primary'>Edit</a>"
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'admin/users/{id}/edit'
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '사용자 편집 페이지'
+      description: '특정 사용자의 편집 페이지를 반환합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: '사용자의 ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Imk4Mk5TU3NwSW9vZk1nM29VbXdTUGc9PSIsInZhbHVlIjoiUlV1aEoyeFlBUDdlYUZUaksxQ0NiTElFdk9CQ1B4KzBOWS9UMi9rUjBqL1hsSVFSMG41ZnNlMFRMNE1IT2d2ME5CV2g4a3dyOGNsemRJcW1pQnlzRjd5bXkwTUFnRHNDVjJBWWoyS3dDQk0xVkxwaTN1VmNRajNhQzNmbVVGWlciLCJtYWMiOiI3MDYyNzJjMGM2YTNlOTEwZWFkMThmZjA0MTI5ODY4OWI3ODYzODNlZDAxYTViZjEwYWY3OTk0MmU5NTlhMDIzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; samesite=lax; aa_session=eyJpdiI6InNhcnpKcVhNWWR3L2hTVUFtSS95VVE9PSIsInZhbHVlIjoiSEN5K1Rld3lMMnZiakpPM3F0NTB0Qm1qL3NYNXQxTUpCQ0NrSzAvSlZNNDNMcExYSldXbEtIWDFlWVJuUFB0THdtcnFVQ2c5a0VhQmI2WUFCemVFQ1p3TlFTK0phWkg2SFlHT2JCRFJYRVRRcjVYMkdadW43Q0pKZWV3cnhHZ3IiLCJtYWMiOiI0NWY0MDkxZjFhYzQ0Y2QxM2RjZmJkNTk5MGU0MjhjZmI5NTg5ODA0YWMyYTZkMWRkM2FlY2Q2N2E5NTE4OGJjIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'admin/users/{id}'
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '사용자 정보 업데이트'
+      description: '특정 사용자의 정보를 업데이트합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: '사용자의 ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: '사용자의 이름.'
+        required: true
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      email:
+        name: email
+        description: '사용자의 이메일.'
+        required: true
+        example: john@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      password:
+        name: password
+        description: '사용자의 새 비밀번호 (선택적).'
+        required: false
+        example: '>.>;DN,M?jES['
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: 'John Doe'
+      email: john@example.com
+      password: '>.>;DN,M?jES['
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "message": "User updated successfully."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: admin
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '로그인 페이지로 리다이렉트'
+      description: '로그인 페이지로 리다이렉트합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 302
+        content: "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <meta charset=\"UTF-8\" />\r\n        <meta http-equiv=\"refresh\" content=\"0;url='http://localhost/admin/login'\" />\r\n\r\n        <title>Redirecting to http://localhost/admin/login</title>\r\n    </head>\r\n    <body>\r\n        Redirecting to <a href=\"http://localhost/admin/login\">http://localhost/admin/login</a>.\r\n    </body>\r\n</html>"
+        headers:
+          cache-control: 'no-cache, private'
+          location: 'http://localhost/admin/login'
+          content-type: 'text/html; charset=utf-8'
+          vary: X-Inertia
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjZlWEJJSjlJYU8zQThXWUNVRWFhaHc9PSIsInZhbHVlIjoiS0RSOVNsNXpWSHdCZktBYWszSG5vNnNRS3RLRHFrZVNXdUg5ejJXSHRlOWRvd3lRTmVXWDJwd292ZEtFaHFMa1draXhrRlU0bEc3cFZPMm1Mc2RDaWNFeWtWTVczbDdMSXJmL1VZcFFUMm5uNkZmV3ZHcUpGZXRyMTBKWHlOc1QiLCJtYWMiOiIwMDlkNjdkMzc3NDBkY2U1ZjA1OTM5NWMxNzAyMzZhMGZiMjVlY2IyMzkyNTM2YmZlMWQ3YmE1OGIwZGFiMTM3IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; samesite=lax; aa_session=eyJpdiI6IlBwYVVDeXQ2YjFUSG44L0EvWFN4Unc9PSIsInZhbHVlIjoiaVkrb1BKQ09sVnN4M3hEbVQzMEpYbEc0b0MvYm9wanBWSFgxM1BtL3c2T1hvd1NuYkVvTTAyNHUwZkNFcmhvamRtZnpTeXJyc3gvVGtTbzFDQjdmUmlrUHcwd3VBUnl5V3B4aXBnYUJlWkwxeC85RUsyK2hMVTdMMllsZ3RxcEsiLCJtYWMiOiIxNzkyYjJkYTU3NTcyOWY1ZWZjN2JkOWQ1N2U4NjMzZjU1ZjA2ZTMyZTMyODlhYmY2Zjk5NTRjZjlhMmJkN2NiIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: admin/login
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '로그인 페이지'
+      description: '로그인 페이지를 반환합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: "<style>\r\n        body {\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            margin: 0;\r\n            background-color: #f4f6f9;\r\n        }\r\n        .login-box {\r\n            width: 360px;\r\n            margin: 0;\r\n        }\r\n        .card {\r\n            box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);\r\n        }\r\n        .login-card-body {\r\n            padding: 20px;\r\n        }\r\n        .login-logo {\r\n            margin-bottom: 20px;\r\n        }\r\n        .social-auth-links {\r\n            margin-top: 20px;\r\n        }\r\n    </style>\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n\r\n    \r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n    \r\n    \r\n    \r\n    <title>\r\n                AdminLTE 3            </title>\r\n\r\n    \r\n    \r\n    \r\n            <link rel=\"stylesheet\" href=\"http://localhost/vendor/fontawesome-free/css/all.min.css\">\r\n        <link rel=\"stylesheet\" href=\"http://localhost/vendor/overlayScrollbars/css/OverlayScrollbars.min.css\">\r\n        <link rel=\"stylesheet\" href=\"http://localhost/vendor/adminlte/dist/css/adminlte.min.css\">\r\n\r\n                    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">\r\n            \r\n    \r\n    <link rel=\"stylesheet\" href=\"//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css\">\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <link rel=\"stylesheet\" href=\"//cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css\">\r\n            \r\n            \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n    \r\n            \r\n    \r\n    \r\n</head>\r\n\r\n<body class=\"\" >\r\n\r\n    \r\n    <div class=\"login-box\">\r\n    <div class=\"card\">\r\n        <div class=\"card-body login-card-body\">\r\n            <div class=\"login-logo\">\r\n                <a href=\"#\"><b>Admin</b>LTE</a>\r\n            </div>\r\n            <p class=\"login-box-msg\">Sign in to start your session</p>\r\n            <form action=\"http://localhost/admin/login\" method=\"POST\" onsubmit=\"return handleLogin(event)\">\r\n                <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">                <div class=\"input-group mb-3\">\r\n                    <input type=\"name\" class=\"form-control\" placeholder=\"name\" name=\"name\" required>\r\n                    <div class=\"input-group-append\">\r\n                        <div class=\"input-group-text\">\r\n                            <span class=\"fas fa-envelope\"></span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"input-group mb-3\">\r\n                    <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\" required>\r\n                    <div class=\"input-group-append\">\r\n                        <div class=\"input-group-text\">\r\n                            <span class=\"fas fa-lock\"></span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-8\">\r\n                        <div class=\"icheck-primary\">\r\n                            <input type=\"checkbox\" id=\"remember\">\r\n                            <label for=\"remember\">Remember Me</label>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-4\">\r\n                        <button type=\"submit\" class=\"btn btn-primary btn-block\">Sign In</button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n            <div class=\"social-auth-links text-center mb-3\">\r\n                <p>- OR -</p>\r\n                <a href=\"#\" class=\"btn btn-block btn-primary\">\r\n                    <i class=\"fab fa-facebook mr-2\"></i> Sign in using Facebook\r\n                </a>\r\n                <a href=\"#\" class=\"btn btn-block btn-danger\">\r\n                    <i class=\"fab fa-google-plus mr-2\"></i> Sign in using Google+\r\n                </a>\r\n            </div>\r\n            <p class=\"mb-1\"><a href=\"#\">I forgot my password</a></p>\r\n            <p class=\"mb-0\"><a href=\"#\" class=\"text-center\">Register a new membership</a></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<script>\r\n    function handleLogin(event) {\r\n        // event.preventDefault();\r\n        // const form = event.target;\r\n        // const formData = new FormData(form);\r\n\r\n        // fetch(form.action, {\r\n        //     method: 'POST',\r\n        //     body: formData,\r\n        //     headers: {\r\n        //         'X-Requested-With': 'XMLHttpRequest',\r\n        //         'X-CSRF-TOKEN': 'pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr'\r\n        //     }\r\n        // })\r\n        // .then(response => {\r\n        //     if (!response.ok) {\r\n        //         throw new Error('Login failed');\r\n        //     }\r\n        //     return response.json();\r\n        // })\r\n        // .catch(error => {\r\n        //     alert('로그인할수 없습니다.');\r\n        // });\r\n    }\r\n</script>\r\n\r\n    \r\n            <script src=\"http://localhost/vendor/jquery/jquery.min.js\"></script>\r\n        <script src=\"http://localhost/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>\r\n        <script src=\"http://localhost/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js\"></script>\r\n        <script src=\"http://localhost/vendor/adminlte/dist/js/adminlte.min.js\"></script>\r\n    \r\n    \r\n    <script src=\"//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"//cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js\" ></script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n            \r\n            \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n    \r\n            \r\n</body>\r\n\r\n</html>\r\n"
+        headers:
+          content-type: 'text/html; charset=UTF-8'
+          cache-control: 'no-cache, private'
+          vary: X-Inertia
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjU0OE9FY0RXS1RXYXRvTHNsRjlyanc9PSIsInZhbHVlIjoiRy8rYW5GdjRJT0JNWDRjdW9hZzR0WHVTWnIyQ1NjM3FwYWVMcGN3Uzd1NFRhc0hERHBZc2RCT1AxYTk3aC9IcmpJc202YzBsNEcyVWdvS0xscWRvTFltd2cwcitnTFdyaHA4b3U3UTBJSGt0OXFVTzhRUWg4N0xjL1ZyT2NUbkIiLCJtYWMiOiIzODNmNjJjZDA3NTJmN2U2YjVhY2UxMzFjZWYyMDRiMDQyMmUxMzQ1YTAwZTIwMTQ0NjBkZjQyNDkzN2FiMTRhIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; samesite=lax; aa_session=eyJpdiI6Im5UWEFLbEhNc3JvQTRhR1o0U3pvSkE9PSIsInZhbHVlIjoiTmpMUEpoWW9nYUsybkYxN0dpV2dJZ1FMc0JoUCtoaDlUYmg4ZXp6cExXQW91VTJDdTRkV0taRDNuOGYrYUx0QmJybThlcGpXUXRrN2FCbEJocnNCYm0wYVlNTlJoUWxuSmd6OHE2d01YMkdBQUJuZVhYNUtrQXk1eXV3VjgvZjAiLCJtYWMiOiIzZWZmZWIwZmY0NzBkN2JiMjZkOTI1M2UzNWZjYmNmZjc3N2VjNmRmYmJhMmZkOWIyYzE0Y2Q0NzRlN2RiODliIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: admin/login
+    metadata:
+      groupName: '사용자 관리'
+      groupDescription: |-
+
+        사용자 관리와 관련된 API 엔드포인트
+      subgroup: ''
+      subgroupDescription: ''
+      title: '로그인 페이지'
+      description: '로그인 페이지를 반환합니다.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,2041 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "AA\uc791\uc5c5 API Documentation",
+        "_postman_id": "5264018a-9b42-4510-989b-e350d1ea7331",
+        "description": "This is the API documentation for AA\uc791\uc5c5.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "\uc0ac\uc6a9\uc790 \uad00\ub9ac",
+            "description": "\n\uc0ac\uc6a9\uc790 \uad00\ub9ac\uc640 \uad00\ub828\ub41c API \uc5d4\ub4dc\ud3ec\uc778\ud2b8",
+            "item": [
+                {
+                    "name": "\uc0ac\uc6a9\uc790 \ubaa9\ub85d \uc870\ud68c",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\ud398\uc774\uc9c0\ub124\uc774\uc158\ub41c \uc0ac\uc6a9\uc790 \ubaa9\ub85d\uc744 \ubc18\ud658\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n \"message\": \"\ub85c\uadf8\uc778\uc774 \ud544\uc694\ud55c \uc11c\ube44\uc2a4\uc785\ub2c8\ub2e4.\",\n \"code\": \"UNAUTHORIZED\"\n}",
+                            "name": "\ud1a0\ud070 \uc5c6\uc74c"
+                        },
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IlUxMHlxaG9oS2FlZGo0Zk5GaEltMFE9PSIsInZhbHVlIjoiM09MMU5NODh5NHFmUGEyTzNZY09neFg4RENrbEtWTDFhejRTL21JdU1RSnhiMTdOWjMrRE9OdHNKUndITXhoeGZmc3lQY1ZqcXdxTHZvekxsVTI5c0FKaTlERkVIQUFIQVRyeXJFUFRYNkszQXF3b2VFVGpGeUxsVmZvTEpWMFMiLCJtYWMiOiIwMmVkOWZkYTVjYTgyZjNhZTAyODUzMjJiYmFjZmMyNjViYWViMTkxOTBiYzliNDVlYzgwNTAzMjRmOTVjOWEzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6ImxGZ1p6WHJqUG1EUUdUMGgzSWRrQlE9PSIsInZhbHVlIjoiU1Z6UmhtOE1RZk9pSHhXODNoVklEQmRyeENlRmV2UllhZlVnTFJic2txT1p0TzhUaUFvcU9mY2JaUnpOZDh2Nm93Rlp2c0UyNjJUZ254SzhZN2p1ZnMzNi9kVllRSEEvWFlPOXdRc2pFbWtDSmVVSTFzZVdhaVdNNTNKVnB3NTQiLCJtYWMiOiJlZmRlOTIzZDgxYzlhNDBhNTc1MTMzN2E5M2VmYzdjMWY5NDljNTY4YzVjZDg3OWNkZTVmMGViMGZjZmU5NmViIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\uc0ac\uc6a9\uc790 \ub370\uc774\ud130 \uc870\ud68c",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/users\/data",
+                            "query": [
+                                {
+                                    "key": "draw",
+                                    "value": "1",
+                                    "description": "\ub370\uc774\ud130 \uc694\uccad \ud69f\uc218.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start",
+                                    "value": "",
+                                    "description": "\uc2dc\uc791 \ub808\ucf54\ub4dc \ubc88\ud638.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "length",
+                                    "value": "10",
+                                    "description": "\ud398\uc774\uc9c0\ub2f9 \ub808\ucf54\ub4dc \uc218.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/admin\/users\/data?draw=1&start=&length=10"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "DataTables\uc5d0 \uc0ac\uc6a9\ub420 \uc0ac\uc6a9\uc790 \ub370\uc774\ud130\ub97c JSON \ud615\uc2dd\uc73c\ub85c \ubc18\ud658\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"draw\": 1,\n \"recordsTotal\": 50,\n \"recordsFiltered\": 50,\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"John Doe\",\n     \"email\": \"john@example.com\",\n     \"actions\": \"<a href='\/admin\/users\/1\/edit' class='btn btn-sm btn-primary'>Edit<\/a>\"\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\uc0ac\uc6a9\uc790 \ud3b8\uc9d1 \ud398\uc774\uc9c0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/users\/:id\/edit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin\/users\/:id\/edit",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\uc0ac\uc6a9\uc790\uc758 ID."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\ud2b9\uc815 \uc0ac\uc6a9\uc790\uc758 \ud3b8\uc9d1 \ud398\uc774\uc9c0\ub97c \ubc18\ud658\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6Imk4Mk5TU3NwSW9vZk1nM29VbXdTUGc9PSIsInZhbHVlIjoiUlV1aEoyeFlBUDdlYUZUaksxQ0NiTElFdk9CQ1B4KzBOWS9UMi9rUjBqL1hsSVFSMG41ZnNlMFRMNE1IT2d2ME5CV2g4a3dyOGNsemRJcW1pQnlzRjd5bXkwTUFnRHNDVjJBWWoyS3dDQk0xVkxwaTN1VmNRajNhQzNmbVVGWlciLCJtYWMiOiI3MDYyNzJjMGM2YTNlOTEwZWFkMThmZjA0MTI5ODY4OWI3ODYzODNlZDAxYTViZjEwYWY3OTk0MmU5NTlhMDIzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6InNhcnpKcVhNWWR3L2hTVUFtSS95VVE9PSIsInZhbHVlIjoiSEN5K1Rld3lMMnZiakpPM3F0NTB0Qm1qL3NYNXQxTUpCQ0NrSzAvSlZNNDNMcExYSldXbEtIWDFlWVJuUFB0THdtcnFVQ2c5a0VhQmI2WUFCemVFQ1p3TlFTK0phWkg2SFlHT2JCRFJYRVRRcjVYMkdadW43Q0pKZWV3cnhHZ3IiLCJtYWMiOiI0NWY0MDkxZjFhYzQ0Y2QxM2RjZmJkNTk5MGU0MjhjZmI5NTg5ODA0YWMyYTZkMWRkM2FlY2Q2N2E5NTE4OGJjIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\uc0ac\uc6a9\uc790 \uc815\ubcf4 \uc5c5\ub370\uc774\ud2b8",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\uc0ac\uc6a9\uc790\uc758 ID."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"password\":\">.>;DN,M?jES[\"}"
+                        },
+                        "description": "\ud2b9\uc815 \uc0ac\uc6a9\uc790\uc758 \uc815\ubcf4\ub97c \uc5c5\ub370\uc774\ud2b8\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"User updated successfully.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\ub85c\uadf8\uc778 \ud398\uc774\uc9c0\ub85c \ub9ac\ub2e4\uc774\ub809\ud2b8",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\ub85c\uadf8\uc778 \ud398\uc774\uc9c0\ub85c \ub9ac\ub2e4\uc774\ub809\ud2b8\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "http:\/\/localhost\/admin\/login"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=utf-8"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IjZlWEJJSjlJYU8zQThXWUNVRWFhaHc9PSIsInZhbHVlIjoiS0RSOVNsNXpWSHdCZktBYWszSG5vNnNRS3RLRHFrZVNXdUg5ejJXSHRlOWRvd3lRTmVXWDJwd292ZEtFaHFMa1draXhrRlU0bEc3cFZPMm1Mc2RDaWNFeWtWTVczbDdMSXJmL1VZcFFUMm5uNkZmV3ZHcUpGZXRyMTBKWHlOc1QiLCJtYWMiOiIwMDlkNjdkMzc3NDBkY2U1ZjA1OTM5NWMxNzAyMzZhMGZiMjVlY2IyMzkyNTM2YmZlMWQ3YmE1OGIwZGFiMTM3IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6IlBwYVVDeXQ2YjFUSG44L0EvWFN4Unc9PSIsInZhbHVlIjoiaVkrb1BKQ09sVnN4M3hEbVQzMEpYbEc0b0MvYm9wanBWSFgxM1BtL3c2T1hvd1NuYkVvTTAyNHUwZkNFcmhvamRtZnpTeXJyc3gvVGtTbzFDQjdmUmlrUHcwd3VBUnl5V3B4aXBnYUJlWkwxeC85RUsyK2hMVTdMMllsZ3RxcEsiLCJtYWMiOiIxNzkyYjJkYTU3NTcyOWY1ZWZjN2JkOWQ1N2U4NjMzZjU1ZjA2ZTMyZTMyODlhYmY2Zjk5NTRjZjlhMmJkN2NiIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 302,
+                            "body": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <meta charset=\"UTF-8\" \/>\r\n        <meta http-equiv=\"refresh\" content=\"0;url='http:\/\/localhost\/admin\/login'\" \/>\r\n\r\n        <title>Redirecting to http:\/\/localhost\/admin\/login<\/title>\r\n    <\/head>\r\n    <body>\r\n        Redirecting to <a href=\"http:\/\/localhost\/admin\/login\">http:\/\/localhost\/admin\/login<\/a>.\r\n    <\/body>\r\n<\/html>",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\ub85c\uadf8\uc778 \ud398\uc774\uc9c0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin\/login"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\ub85c\uadf8\uc778 \ud398\uc774\uc9c0\ub97c \ubc18\ud658\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IjU0OE9FY0RXS1RXYXRvTHNsRjlyanc9PSIsInZhbHVlIjoiRy8rYW5GdjRJT0JNWDRjdW9hZzR0WHVTWnIyQ1NjM3FwYWVMcGN3Uzd1NFRhc0hERHBZc2RCT1AxYTk3aC9IcmpJc202YzBsNEcyVWdvS0xscWRvTFltd2cwcitnTFdyaHA4b3U3UTBJSGt0OXFVTzhRUWg4N0xjL1ZyT2NUbkIiLCJtYWMiOiIzODNmNjJjZDA3NTJmN2U2YjVhY2UxMzFjZWYyMDRiMDQyMmUxMzQ1YTAwZTIwMTQ0NjBkZjQyNDkzN2FiMTRhIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Im5UWEFLbEhNc3JvQTRhR1o0U3pvSkE9PSIsInZhbHVlIjoiTmpMUEpoWW9nYUsybkYxN0dpV2dJZ1FMc0JoUCtoaDlUYmg4ZXp6cExXQW91VTJDdTRkV0taRDNuOGYrYUx0QmJybThlcGpXUXRrN2FCbEJocnNCYm0wYVlNTlJoUWxuSmd6OHE2d01YMkdBQUJuZVhYNUtrQXk1eXV3VjgvZjAiLCJtYWMiOiIzZWZmZWIwZmY0NzBkN2JiMjZkOTI1M2UzNWZjYmNmZjc3N2VjNmRmYmJhMmZkOWIyYzE0Y2Q0NzRlN2RiODliIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "<style>\r\n        body {\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            margin: 0;\r\n            background-color: #f4f6f9;\r\n        }\r\n        .login-box {\r\n            width: 360px;\r\n            margin: 0;\r\n        }\r\n        .card {\r\n            box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);\r\n        }\r\n        .login-card-body {\r\n            padding: 20px;\r\n        }\r\n        .login-logo {\r\n            margin-bottom: 20px;\r\n        }\r\n        .social-auth-links {\r\n            margin-top: 20px;\r\n        }\r\n    <\/style>\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n\r\n    \r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n    \r\n    \r\n    \r\n    <title>\r\n                AdminLTE 3            <\/title>\r\n\r\n    \r\n    \r\n    \r\n            <link rel=\"stylesheet\" href=\"http:\/\/localhost\/vendor\/fontawesome-free\/css\/all.min.css\">\r\n        <link rel=\"stylesheet\" href=\"http:\/\/localhost\/vendor\/overlayScrollbars\/css\/OverlayScrollbars.min.css\">\r\n        <link rel=\"stylesheet\" href=\"http:\/\/localhost\/vendor\/adminlte\/dist\/css\/adminlte.min.css\">\r\n\r\n                    <link rel=\"stylesheet\" href=\"https:\/\/fonts.googleapis.com\/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">\r\n            \r\n    \r\n    <link rel=\"stylesheet\" href=\"\/\/cdn.datatables.net\/1.10.19\/css\/dataTables.bootstrap4.min.css\">\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <link rel=\"stylesheet\" href=\"\/\/cdn.datatables.net\/buttons\/1.6.5\/css\/buttons.bootstrap4.min.css\">\r\n            \r\n            \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n    \r\n            \r\n    \r\n    \r\n<\/head>\r\n\r\n<body class=\"\" >\r\n\r\n    \r\n    <div class=\"login-box\">\r\n    <div class=\"card\">\r\n        <div class=\"card-body login-card-body\">\r\n            <div class=\"login-logo\">\r\n                <a href=\"#\"><b>Admin<\/b>LTE<\/a>\r\n            <\/div>\r\n            <p class=\"login-box-msg\">Sign in to start your session<\/p>\r\n            <form action=\"http:\/\/localhost\/admin\/login\" method=\"POST\" onsubmit=\"return handleLogin(event)\">\r\n                <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">                <div class=\"input-group mb-3\">\r\n                    <input type=\"name\" class=\"form-control\" placeholder=\"name\" name=\"name\" required>\r\n                    <div class=\"input-group-append\">\r\n                        <div class=\"input-group-text\">\r\n                            <span class=\"fas fa-envelope\"><\/span>\r\n                        <\/div>\r\n                    <\/div>\r\n                <\/div>\r\n                <div class=\"input-group mb-3\">\r\n                    <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\" required>\r\n                    <div class=\"input-group-append\">\r\n                        <div class=\"input-group-text\">\r\n                            <span class=\"fas fa-lock\"><\/span>\r\n                        <\/div>\r\n                    <\/div>\r\n                <\/div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-8\">\r\n                        <div class=\"icheck-primary\">\r\n                            <input type=\"checkbox\" id=\"remember\">\r\n                            <label for=\"remember\">Remember Me<\/label>\r\n                        <\/div>\r\n                    <\/div>\r\n                    <div class=\"col-4\">\r\n                        <button type=\"submit\" class=\"btn btn-primary btn-block\">Sign In<\/button>\r\n                    <\/div>\r\n                <\/div>\r\n            <\/form>\r\n            <div class=\"social-auth-links text-center mb-3\">\r\n                <p>- OR -<\/p>\r\n                <a href=\"#\" class=\"btn btn-block btn-primary\">\r\n                    <i class=\"fab fa-facebook mr-2\"><\/i> Sign in using Facebook\r\n                <\/a>\r\n                <a href=\"#\" class=\"btn btn-block btn-danger\">\r\n                    <i class=\"fab fa-google-plus mr-2\"><\/i> Sign in using Google+\r\n                <\/a>\r\n            <\/div>\r\n            <p class=\"mb-1\"><a href=\"#\">I forgot my password<\/a><\/p>\r\n            <p class=\"mb-0\"><a href=\"#\" class=\"text-center\">Register a new membership<\/a><\/p>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>\r\n<script>\r\n    function handleLogin(event) {\r\n        \/\/ event.preventDefault();\r\n        \/\/ const form = event.target;\r\n        \/\/ const formData = new FormData(form);\r\n\r\n        \/\/ fetch(form.action, {\r\n        \/\/     method: 'POST',\r\n        \/\/     body: formData,\r\n        \/\/     headers: {\r\n        \/\/         'X-Requested-With': 'XMLHttpRequest',\r\n        \/\/         'X-CSRF-TOKEN': 'pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr'\r\n        \/\/     }\r\n        \/\/ })\r\n        \/\/ .then(response => {\r\n        \/\/     if (!response.ok) {\r\n        \/\/         throw new Error('Login failed');\r\n        \/\/     }\r\n        \/\/     return response.json();\r\n        \/\/ })\r\n        \/\/ .catch(error => {\r\n        \/\/     alert('\ub85c\uadf8\uc778\ud560\uc218 \uc5c6\uc2b5\ub2c8\ub2e4.');\r\n        \/\/ });\r\n    }\r\n<\/script>\r\n\r\n    \r\n            <script src=\"http:\/\/localhost\/vendor\/jquery\/jquery.min.js\"><\/script>\r\n        <script src=\"http:\/\/localhost\/vendor\/bootstrap\/js\/bootstrap.bundle.min.js\"><\/script>\r\n        <script src=\"http:\/\/localhost\/vendor\/overlayScrollbars\/js\/jquery.overlayScrollbars.min.js\"><\/script>\r\n        <script src=\"http:\/\/localhost\/vendor\/adminlte\/dist\/js\/adminlte.min.js\"><\/script>\r\n    \r\n    \r\n    <script src=\"\/\/cdn.datatables.net\/1.10.19\/js\/jquery.dataTables.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdn.datatables.net\/1.10.19\/js\/dataTables.bootstrap4.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdn.datatables.net\/buttons\/1.6.5\/js\/dataTables.buttons.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdn.datatables.net\/buttons\/1.6.5\/js\/buttons.bootstrap4.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdnjs.cloudflare.com\/ajax\/libs\/jszip\/3.1.3\/jszip.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdnjs.cloudflare.com\/ajax\/libs\/pdfmake\/0.1.53\/pdfmake.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdnjs.cloudflare.com\/ajax\/libs\/pdfmake\/0.1.53\/vfs_fonts.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdn.datatables.net\/buttons\/1.6.5\/js\/buttons.html5.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdn.datatables.net\/buttons\/1.6.5\/js\/buttons.print.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n                            <script src=\"\/\/cdn.datatables.net\/buttons\/1.6.5\/js\/buttons.colVis.min.js\" ><\/script>\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n            \r\n        \r\n            \r\n\r\n            \r\n            \r\n\r\n            \r\n            \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n\r\n    \r\n\r\n    \r\n    \r\n    \r\n            \r\n<\/body>\r\n\r\n<\/html>\r\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\ub85c\uadf8\uc778 \ud398\uc774\uc9c0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\ub85c\uadf8\uc778 \ud398\uc774\uc9c0\ub97c \ubc18\ud658\ud569\ub2c8\ub2e4."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET _debugbar\/open",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_debugbar\/open",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_debugbar\/open"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Return Clockwork output",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_debugbar\/clockwork\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_debugbar\/clockwork\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "occaecati",
+                                    "description": "The ID of the clockwork."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Return the stylesheets for the Debugbar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_debugbar\/assets\/stylesheets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_debugbar\/assets\/stylesheets"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Return the javascript for the Debugbar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_debugbar\/assets\/javascript",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_debugbar\/assets\/javascript"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Forget a cache key",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_debugbar\/cache\/:key\/:tags",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_debugbar\/cache\/:key\/:tags",
+                            "variable": [
+                                {
+                                    "id": "key",
+                                    "key": "key",
+                                    "value": "maxime",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "tags",
+                                    "key": "tags",
+                                    "value": "tempora",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Toggle the dark mode preference.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "adminlte\/darkmode\/toggle",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/adminlte\/darkmode\/toggle"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show the login view.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/login"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6InhsWVFCNmVpMm9wMGUzSXdldmd4eHc9PSIsInZhbHVlIjoiMUsxb1llbzRCNndYeWxlM1JMYlp0QjhzajNwakxEZmRkQTBGV3Ywb2VZR3c4TkZ3aUVPU1d0bDR6MHNJdUhSWDFRZlBZZnBLdVlrQksrekVyL3QxWXVCS3lpNG9WN3cxay9wNUpheUswa0owTVUzcEhwSkhBOTFJOTViZEVyWWIiLCJtYWMiOiJhNTkxNDYwZGRkODlmZGZiZmRkZTliYjU2NTAwOTkyNWU0MTY2Njk4MWYyZGVjYmZiODBmZDcwM2Y4NmZhYjI2IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Ik52S0JEQk5IM3ZzcHRNQnNoVm04M0E9PSIsInZhbHVlIjoiNzh3OXUwSVhpUGE3NUZWU0g0MVZWckFrOHVkUm9iRG13YWcrNDhZQzd1dnlJczkwYzQzZU04clFaWWh0MnMxS3VDTVNpdGxJa3lBYXRMbi93ekYvOHJDUnE3VzBMbmEyZGltZ3RPVG5wck4vZXJ4MktHeGVEVDBGY1VQdUtjdTEiLCJtYWMiOiJmMzUxNGVlODU4NjM4NDk0YzRiMGE4MTBhNzI1YjQxYTRmMjRlNjQ0NDhhMTIxMzc4YmQxZWM2ZDBkMGY4YjU4IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA\uc791\uc5c5<\/title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https:\/\/fonts.bunny.net\">\r\n        <link href=\"https:\/\/fonts.bunny.net\/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" \/>\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http:\/\/[::1]:5173\/@vite\/client\"><\/script><link rel=\"stylesheet\" href=\"http:\/\/[::1]:5173\/resources\/css\/app.css\" \/><script type=\"module\" src=\"http:\/\/[::1]:5173\/resources\/js\/app.js\"><\/script>    <\/head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"\/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"\/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"\/>\r\n    <\/svg>\r\n<\/a>\r\n    <\/div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <form method=\"POST\" action=\"http:\/\/localhost\/login\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <div>\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"username\">\r\n            <\/div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password\">\r\n    Password\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password\" type=\"password\" name=\"password\" required=\"required\" autocomplete=\"current-password\">\r\n            <\/div>\r\n\r\n            <div class=\"block mt-4\">\r\n                <label for=\"remember_me\" class=\"flex items-center\">\r\n                    <input type=\"checkbox\" class=\"rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500\" id=\"remember_me\" name=\"remember\">\r\n                    <span class=\"ml-2 text-sm text-gray-600\">Remember me<\/span>\r\n                <\/label>\r\n            <\/div>\r\n\r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                                    <a class=\"underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\" href=\"http:\/\/localhost\/forgot-password\">\r\n                        Forgot your password?\r\n                    <\/a>\r\n                \r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4\">\r\n    Log in\r\n<\/button>\r\n            <\/div>\r\n        <\/form>\r\n    <\/div>\r\n<\/div>\r\n        <\/div>\r\n    <\/body>\r\n<\/html>\r\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Attempt to authenticate a new session.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"schmeler.aiyana@example.net\",\"password\":\"3^|{20]z\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Destroy an authenticated session.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show the reset password link request view.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "forgot-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/forgot-password"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IjJEbWJ4TmhqVURXazZHVlNNRGF2L1E9PSIsInZhbHVlIjoiZHVnYy91RktUUXY4M1hiZmY1c3hNV3NIWlFSUE42YVUvN3k5RTZGQ25FdVhNMTAzT2dBT0txclN2cE1xQXl3WnZId216SkpNUTRVNFFuMWt0MUtWSk05aC9ma1Y2bXByUWk1emx3OXV0L3RvcjVlMGpCTjJUZnE0NXovWFZWRnkiLCJtYWMiOiJhNWZjZTkxOTRmOTY3MzAxOGU3NmEzZGU1OTIwZjJjMjY1MGFjMjg3ZDk1ODM1NTA5ZjU4NjZhOWZkNTM3ZGEzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6ImRMRHN5UnVyQ2R5ZjYyN3g3dUpBTUE9PSIsInZhbHVlIjoiYXlSZnpSS3BwQjgvMVhLRG1OTXduZ1JLa1BhYUpXRTZ1eUdURGtQRUpKU0dNU24vdU54aFNzdWJQSFRyOG56UVVrTmdqWVBkZmJCOGlWeWh1alByWXcvdHlxSHlkQ0hneEV1VDYrWXpOVUNtSW9QZ0toeENkM01kM0pmcXFMUnMiLCJtYWMiOiJiYmZlMThkZjY2ODY0MTcxMmJjZmI0OWNlNWNmMjA1ZmEwNTk1NjlhZDZmODYxNTg4OWY1NmJmMjAyMDYyNzU3IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA\uc791\uc5c5<\/title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https:\/\/fonts.bunny.net\">\r\n        <link href=\"https:\/\/fonts.bunny.net\/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" \/>\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http:\/\/[::1]:5173\/@vite\/client\"><\/script><link rel=\"stylesheet\" href=\"http:\/\/[::1]:5173\/resources\/css\/app.css\" \/><script type=\"module\" src=\"http:\/\/[::1]:5173\/resources\/js\/app.js\"><\/script>    <\/head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"\/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"\/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"\/>\r\n    <\/svg>\r\n<\/a>\r\n    <\/div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <div class=\"mb-4 text-sm text-gray-600\">\r\n            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.\r\n        <\/div>\r\n\r\n        \r\n        \r\n        <form method=\"POST\" action=\"http:\/\/localhost\/forgot-password\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <div class=\"block\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"username\">\r\n            <\/div>\r\n\r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150\">\r\n    Email Password Reset Link\r\n<\/button>\r\n            <\/div>\r\n        <\/form>\r\n    <\/div>\r\n<\/div>\r\n        <\/div>\r\n    <\/body>\r\n<\/html>\r\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show the new password view.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "reset-password\/:token",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/reset-password\/:token",
+                            "variable": [
+                                {
+                                    "id": "token",
+                                    "key": "token",
+                                    "value": "iste",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IlBZYWU2MFVZdlhPb25rQjRrYmxtM1E9PSIsInZhbHVlIjoiOHhTZkZjdDVhejZib1d2aEVaOUFhSkJEcUtPbGRlRUt1UEhESjlLRDVPOStLQm5ncjVFdFljSmUxUW1jeUQxUFEvSFFEKzJObVA4Z05vQXBBOFA4TDN6dTlrRkVhVzF6MHVFcm9Qc3RqNWxSL0FFenZWekNwazJzajEyNDBxQXoiLCJtYWMiOiI1ZDgxZjczMWNmMDNlOWU2OWNmMzIyNjBmZGE4NDUyZDNkYTRlOWFkYTE5N2JjYjczN2MwNDRhOGExZjVjNjVhIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6InlJQWlTUk05ZnNhR1ZwdG50Tkdzbmc9PSIsInZhbHVlIjoiSzNhY2MyOUdRbTEzYWU0bzREcE9Ed041UGk1RW9mTlFZTWQ3cVVVc1NRcFRZQlRlSlZyTnhzMVU0VkxpZ04vanMrTVNPTE01VWZHSUllWFRxK3VPNlFXZnNIZDhTL2FmQUNnOHkzZmU3NkpGUjFvdkZoQkdIbVIrY0Nmd1NDQ0IiLCJtYWMiOiJiNzUxMGYyNzk0ZDBiNTEzN2I4MzA5ZDkyMjgxMjI3YWM3YmM1N2Q3MzQ5MThiZmM3ODQyYmFkNzM5M2Q5NjAyIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA\uc791\uc5c5<\/title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https:\/\/fonts.bunny.net\">\r\n        <link href=\"https:\/\/fonts.bunny.net\/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" \/>\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http:\/\/[::1]:5173\/@vite\/client\"><\/script><link rel=\"stylesheet\" href=\"http:\/\/[::1]:5173\/resources\/css\/app.css\" \/><script type=\"module\" src=\"http:\/\/[::1]:5173\/resources\/js\/app.js\"><\/script>    <\/head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"\/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"\/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"\/>\r\n    <\/svg>\r\n<\/a>\r\n    <\/div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <form method=\"POST\" action=\"http:\/\/localhost\/reset-password\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <input type=\"hidden\" name=\"token\" value=\"iste\">\r\n\r\n            <div class=\"block\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"username\">\r\n            <\/div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password\">\r\n    Password\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password\" type=\"password\" name=\"password\" required=\"required\" autocomplete=\"new-password\">\r\n            <\/div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password_confirmation\">\r\n    Confirm Password\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password_confirmation\" type=\"password\" name=\"password_confirmation\" required=\"required\" autocomplete=\"new-password\">\r\n            <\/div>\r\n\r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150\">\r\n    Reset Password\r\n<\/button>\r\n            <\/div>\r\n        <\/form>\r\n    <\/div>\r\n<\/div>\r\n        <\/div>\r\n    <\/body>\r\n<\/html>\r\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Send a reset link to the given user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "forgot-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/forgot-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reset the user's password.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "reset-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/reset-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"token\":\"est\",\"password\":\"ut\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show the registration view.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/register"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IkRuNFFqclNaUXMxWEoxZFp5bFpKQXc9PSIsInZhbHVlIjoiZ1p4eGUrdWNuTWlPdk5OOUJneTdSdWM4cUVYNjMwaU9GUTdMbCtQZm03aktOYzBuNDdOQWxFSVBWS0N6MERyM1hYclE2T3Q4UWRLNUVMQllDVlNPMnVTQ2lWYjFzNVJ1MXBrTDZuc1FZeHhBZ2tIQzVKT2ljclB3YlVaZUp1eFUiLCJtYWMiOiIxNDZlYjY1ZGM5MzA0Mzk1MzVlOWE3YjMyZTA4ZDI2YTFmNzBlNzUyNDcxZmJjMzE3NTJiYWM1YmRkZmI1YWZjIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6ImpkY1BaditJRzMyVFJxTHkyN2oyNXc9PSIsInZhbHVlIjoibXlFSEp4YUNmRTlLUnZsWURLeXB3cEg2MHlVMGo2cHc4N2R5SERxYjMrTGhzYXdpSWcvQjFwanZBMEVoU3lMeUZlK3MxUzBHWUhCRUZ1S3JwQTgvY2FoMDRYOHhBcGtPYnU4MDI5LzVpOHBoaFVwVTQ4cE1RSW0xUy9MMWNsNFkiLCJtYWMiOiI4ZmFkZGVkZGVkNzRjY2MwYTAyNWExM2FmYWI1ZWRlOTU0ZWE0YWJmNDQ5ZTlkYmEwNTRlMjg1NmNlNzlkZGVhIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA\uc791\uc5c5<\/title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https:\/\/fonts.bunny.net\">\r\n        <link href=\"https:\/\/fonts.bunny.net\/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" \/>\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http:\/\/[::1]:5173\/@vite\/client\"><\/script><link rel=\"stylesheet\" href=\"http:\/\/[::1]:5173\/resources\/css\/app.css\" \/><script type=\"module\" src=\"http:\/\/[::1]:5173\/resources\/js\/app.js\"><\/script>    <\/head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100\">\r\n    <div>\r\n        <a href=\"\/\">\r\n    <svg class=\"w-16 h-16\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\r\n        <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"\/>\r\n        <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"\/>\r\n    <\/svg>\r\n<\/a>\r\n    <\/div>\r\n\r\n    <div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\r\n        <form method=\"POST\" action=\"http:\/\/localhost\/register\">\r\n            <input type=\"hidden\" name=\"_token\" value=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n            <div>\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"name\">\r\n    Name\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"name\" type=\"text\" name=\"name\" required=\"required\" autofocus=\"autofocus\" autocomplete=\"name\">\r\n            <\/div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"email\">\r\n    Email\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"email\" type=\"email\" name=\"email\" required=\"required\" autocomplete=\"username\">\r\n            <\/div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password\">\r\n    Password\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password\" type=\"password\" name=\"password\" required=\"required\" autocomplete=\"new-password\">\r\n            <\/div>\r\n\r\n            <div class=\"mt-4\">\r\n                <label class=\"block font-medium text-sm text-gray-700\" for=\"password_confirmation\">\r\n    Confirm Password\r\n<\/label>\r\n                <input  class=\"border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full\" id=\"password_confirmation\" type=\"password\" name=\"password_confirmation\" required=\"required\" autocomplete=\"new-password\">\r\n            <\/div>\r\n\r\n            \r\n            <div class=\"flex items-center justify-end mt-4\">\r\n                <a class=\"underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\" href=\"http:\/\/localhost\/login\">\r\n                    Already registered?\r\n                <\/a>\r\n\r\n                <button type=\"submit\" class=\"inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4\">\r\n    Register\r\n<\/button>\r\n            <\/div>\r\n        <\/form>\r\n    <\/div>\r\n<\/div>\r\n        <\/div>\r\n    <\/body>\r\n<\/html>\r\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new registered user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the user's profile information.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/profile-information",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/profile-information"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the user's password.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/password"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show the confirm password view.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/confirm-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/confirm-password"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6InZPdDNWKzh4SDJFbE5XSHg0V3ZsRHc9PSIsInZhbHVlIjoieFRTTkVwZUN3YnI0cjVudXFuWmFBT2VmRHo5U1k4Q29UbGNSVzNtVlVpeDF1VTBacjMweS9HdWNuNm05ck1MNWF6V0VPTTlJd2hJMUFURXk3UHcxYmNMSGFWNmpzWlh3UEdvdEdNemFtdDhsY3h1QWc0RW9sTHRtc0pmYzV2WGIiLCJtYWMiOiIzZGQ1NTViYzJiMmNjMTYxZDkxNmFkMGE0Njk0ZDgxMGU5NjI2ZjdjYTJmYzg0YzVlZmRlZjY0ODIxOThiZDUyIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Im05TnpvaDNpaUZvUzFCa0NHRmdrZFE9PSIsInZhbHVlIjoicDVGdDdxRktGeHc4M2VkSE96UU1rWktNL3lzdWlkQUxXUHJtTkVpaHJ3QUo3dllLMnlaV1kxelJpOEo0cmFxWlFuY2lFaGplQ2FzQWpadEZxR1Vsc3lQTVorcUVNRFY3U1JRYlhVVG5scFRMN1I1dW1kYlZWd3dYTVlGUzByRVoiLCJtYWMiOiI5OTI5YTFhZWJhOWU4MmFhM2FlMjYxNmFhZjU0ZTI4Nzg5OGJkZTQ2N2Q5ZTAwNzQ1NzRlY2E0ODI0NjIzZjJkIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get the password confirmation status.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/confirmed-password-status",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/confirmed-password-status"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IlFvai9Kanlzam5ta3AxWGEvYnozbHc9PSIsInZhbHVlIjoibDdWV0RkdjcvMHJudmJWZ2M2aEZLVFdjR01lVWZoQTZnMUtrcFAzdFUzTy9pRTJUdDBUSEZheVVZd25mSkV3aEdTVjRqWlA5Y0lWRWp0VmRJaVZDdmRJWTN1T1ZzZEpockZnbDExbVduSzNVK2lWQ1AyenVMcnVVRXV1dVpzeC8iLCJtYWMiOiI1NTBjNjZmYmI3NDJiYWNjYmM0ZDE5Nzg4NmY5MmUwZDQ0MzNiOGU5NDhiZTUzNzQwYjczOTY5NTUxYmVkOTY2IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6IlRTSmRrMHdZbUFIVFEzR2ttMzZhbHc9PSIsInZhbHVlIjoiKy9MNzVYK2FTeFIrVVduSVMzakN1S1JVR0NudEVLKy9URDMybVlFM2VjRTFNUTk1dGMyUG0yRXk3ZHI5bEJCaHJyaUtPZFFYbTZoOVNKU2lQN0Y2QkUzSDlKeTBLNEsvNjJQQXNrSUJFbVpqVjlaTFY2Y2ZQTUxlOU02cVVjZnkiLCJtYWMiOiJjNzk3NWQ1MzYzN2QzMGY2N2ZlNzE1OWMyNWIxYzhlMDFjZDdhZmUwYjdiMGQ4OWM5YTMxODliNjUzMjEwZGVkIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Confirm the user's password.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/confirm-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/confirm-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show the two factor authentication challenge view.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "two-factor-challenge",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/two-factor-challenge"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"code\":\"explicabo\",\"recovery_code\":\"exercitationem\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "http:\/\/localhost\/login"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=utf-8"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6Im1pbHZRUGd2OURZb04zSy91eHVlMlE9PSIsInZhbHVlIjoiMisrUEI4K2xzOVVlKzdDTHByWkZpVHRxWlRMeFhjdVZKZ2w0dUtQNHNRbWNGT1JrOVQvcTdweWtEVGpUSWhadGhESVBDNFk5aEViMWF0TklxVEhmaUdNVmphazUzS2hxdlFuU0xFL0IzMEZvUHBIeHFTR1h1RElvaFhleDZGTmQiLCJtYWMiOiI1ZDI0NTUzZDZiZmNiZWNkNjNmMGFjMWViYTYyNGJhMWUxNjZiZWUzMTBkZWRmNjA0NjM1NjMxNjExMTczYmM3IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Ik1EUjZDNFhqeEwxeVc1MklMQWU3K2c9PSIsInZhbHVlIjoiSG1vMVk2amV2Z2w5YUV6MFMyNHZFaktWK1FBQUVSaFRQTFNhMHozUi94UGZIbTU4T2hmSndsN0JtMFJScnA4akxjcVBLT2YxQzl6WkZ4ZnhxaFBKNi90ZEZpbDd3SVUzVDlqazJkL3NzVlI3YlRaZUNrVkV1ZmZaL1Z5RzJaMzkiLCJtYWMiOiJlYTQ3Yjc5MDM3YTI3YmJjODY3OWIwOGYwZWMyMzUyZDk0YmNiYTM2NDU2NGI3YWE1NDY0NjVmMDFkYWUwNWQ4IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 302,
+                            "body": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <meta charset=\"UTF-8\" \/>\r\n        <meta http-equiv=\"refresh\" content=\"0;url='http:\/\/localhost\/login'\" \/>\r\n\r\n        <title>Redirecting to http:\/\/localhost\/login<\/title>\r\n    <\/head>\r\n    <body>\r\n        Redirecting to <a href=\"http:\/\/localhost\/login\">http:\/\/localhost\/login<\/a>.\r\n    <\/body>\r\n<\/html>",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Attempt to authenticate a new session using the two factor authentication code.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "two-factor-challenge",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/two-factor-challenge"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"code\":\"tenetur\",\"recovery_code\":\"placeat\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Enable two factor authentication for the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/two-factor-authentication",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/two-factor-authentication"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Enable two factor authentication for the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/confirmed-two-factor-authentication",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/confirmed-two-factor-authentication"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Disable two factor authentication for the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/two-factor-authentication",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/two-factor-authentication"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get the SVG element for the user's two factor authentication QR code.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/two-factor-qr-code",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/two-factor-qr-code"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IkRoeThWc2FsQngvV2swM1o3cUYyTUE9PSIsInZhbHVlIjoiV1RJenBJelc0blJtcHBVVDNCelFsQlFZS3docks1ZE1adXVWUldNNEVva0Zub1NtMWhEMzZDc1RwL1Iycys0aVNqaGVuZ3E1RXl2dzNGZE1TejVWQjFJOU9mVk1vQit1YVV6QmNYbHZXQjJhWXY1b1NEWGtiTDZ3Zm5RZVR5eFgiLCJtYWMiOiIyNDA1NGQxMGFiYjEzNDg4ZjYzNDM3ZDU0ZGQ3ZGU1N2Q5ZTM0MDVmODQ0OWUwNDAwMDI4YmNjZmM0YTI2NmI3IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Ik1YZlk0dkltSnlRYTJhRWtaanBCcWc9PSIsInZhbHVlIjoibXBzQ040cy9TZ2t4K0NEcTUyYTlmUFE3V3JZOWdMbDRyTXNTQzdldHZpZ2pramx2ZHZzb2ZsWEVJSm1yUEFYWEdkWnhGd0lVQnlCR0FIU2hTNEozOWd2dW9TejVVUVpicFZBM3JlMFduNlVLNW9iVk1LMVVpa2k0dEZmVEJiNnMiLCJtYWMiOiI2OGQ5NzU5OTU1MDc4MzJhNTQ2MDFkYTVlNTJiOTczNjIxOGZhZDE1YjExZTY0MGI4ZDIxYjQ2NzBmZmZlZGZmIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get the current user's two factor authentication setup \/ secret key.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/two-factor-secret-key",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/two-factor-secret-key"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IlBSQ0pIaXVkZ1BqS2p3aGNDTU5GMUE9PSIsInZhbHVlIjoiVDVLTTAwU295VGh0NGkwckVBSUlVQUVXRGtGdzh5Z1JqZEYyb1R4M0pmSm9WMmRJdUpNMmdobjNVaG1CUjdERkZCRExTbnh0c1ZBSlJDMDFGaDlXbnBVcS91aktpelJnd2p2UFA3U3k5N2tNS3h1SXk1RlVuM0lWKzF4MHg3R1kiLCJtYWMiOiI4OTkzZjI2NThlYWZhNTJmOTFkM2NmNDdhOGUyNTUwMjRiNTA3MjgyYWIzYjdiMzI1N2JiZDE4OTA0YjY2NTA1IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Im9LRitSZitFRm5xNkJvOGlYdkJHcFE9PSIsInZhbHVlIjoiTExOWTk1Uk9PYmpjNUp6cHlaeUJFNkQ4RFVvdzJsK3pKaU9KMTdzNGNYTDNsYVZsblBrQ211ZXBHVk9LV3BxbW1XSXlicFBySlA3QmdkejVvSExHZGs5K3lxN2kvSHBTc3N6bWNCMmJvQzcvdUROdGlaMkpkNnN3VEdDb1B5emQiLCJtYWMiOiJmYzQ0NWY2MGQxMGU5MDlhMTE1N2NiOGYzYjYzZGQ3N2M3ZmY3YjRlMWU0ZTg5ZGNjZDlhNzUwMDk2YmY2YTdiIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get the two factor authentication recovery codes for authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/two-factor-recovery-codes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/two-factor-recovery-codes"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IisxL214cGZPSFhjc3BPaVkzWElicFE9PSIsInZhbHVlIjoiRDdlbW9SMWRnTG5FWUo4YXhMZWc4THFyYmVUQ0F6TFBzT2VPbklWT3A1RzhVeURsNWg4UzJJdzh5a2dtenRNMjkwZ1VScVhyQ3dvSStsUmVLdWxyTWFUcUR0OXd1cGhIRXJhYUlraEJJWW4yZCtpdnBYcnpNem0wNmRZV3RocFgiLCJtYWMiOiJiZmVjYjNhZDg0YmQxZTFmMmZkNDM5YjFjMmE5YzVjNDkxNTYxZmU4YmZjZTJhM2U0M2QwY2I5NDZiNjE5ZTdiIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6IjhJUHUxVzZ2dmloaWZHdmhaVjl1ZWc9PSIsInZhbHVlIjoiem1NZWhibWtyek5SeFNiQlg3bDdQRTRtYkNhcHlkYjdwMEgwRFkybWMyRzE3emI1Mlp3ckV3YUY3ZlVZbStVdW9VSUVIUzhrSlNSckVjVHc2c1NRdkc2cWNHY3lCaTFMVWZEbFUzTDIwS2FwMTBCVFptRTdSTlBZK0dBKzhOajUiLCJtYWMiOiJlNzc2ZjkwOTBjN2Y2ZjBmYTQ5NzY5ODFjNTZlMWE3OTgyNjBmZTI4ODc1YjczMWNlY2RkMWQ1Y2QyMjM4YjRjIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Generate a fresh set of two factor authentication recovery codes.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/two-factor-recovery-codes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/two-factor-recovery-codes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show the user profile screen.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "user\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/user\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6ImtTQ2pLQ0pjakF5RWJxRzhTSGYzUnc9PSIsInZhbHVlIjoiTVlKV0MvMnJBQUR5a0pPbW9JWG83S1hkVFdKQis1bVJ0WHp0MUJZQVFTMGhLblJScHlhb1A5UTlYcU1CQUdHd2JDMWptK2NScmdvaFNWQ09JWWhxcHdJSU8rUEZ5d2hPQ2dVa0h4eTBTQndjSGhhUGhydmpkSzViZUYvZHVaS08iLCJtYWMiOiIxOGQ0ZjI0MmI3OTgyODVhZDg3Njk3MmI5MjY1NWU2MTQxYjhiYzcyODM4ZWQ0YTYyNGYxNTM2ZmEyZThlN2YzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Ilc2VGJXRVNPUmdDN3Qva0NxblZ3aFE9PSIsInZhbHVlIjoibUtDb3g4WjRkZDZlVUpRZlNaNm1CcmlLNWtiSFNCem80WitmYTJMWmpiaFlMTEhTcmkwRWFFQ3p5WnNPczNiQm8xQ1dHemt3WHN6ckltZFVoVDN5THJaTWNJeXUycS9yUDI3aEs3YWlNdzFXNndveUZjMHBjczlqaE5mZ1BNTXEiLCJtYWMiOiI1NDU2ZTdiMGU3NjU0YzMyYWEyNjJjNTI3ZDY5NzE4NWFkMDlhZGJlMTZiMWI2OWJmYWVmODRiYmU3YjQyNWI5IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Return an empty response simply to trigger the storage of the CSRF cookie in the browser.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "sanctum\/csrf-cookie",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/sanctum\/csrf-cookie"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6InBBUmZFNDlkaUpRcFZNOGtBM1JzdVE9PSIsInZhbHVlIjoiYmNuaUZoRVBSbEY3RHc1ZUx2eFhydkVydlhHSWcwbTdqd3lCTlZwZGtGMmdWK0p3QVdmSGdLSFZmY3JKVmNWWXNWc0s2UnVnY0tKZHZaNDR4cEJod1hVSkVjUmFpeFpPL2RlNGsxN0JPZ0JKTUFlR0VBSXJ5dzNadlJnT0djdmUiLCJtYWMiOiJlN2YzZDI5OTJkMGNmNGY4ZjQ4NWRkZTFlYjE5MWMzMzZlMzZiODUyYjk4ZWIyNGUxOGY2ZTY3YWY1NmQwNWY2IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6ImRPeWlIREtIWUN6R3lIZlNTd0d6TUE9PSIsInZhbHVlIjoiOU82VUxodWFVRWNYSzc4K24vbjVkTE1rM1o0QkZlVGlWQlA4MWhHOHRQQXAzRmp5b05DWHlVUzJGS0ZYVEVoZVQ4R05pRXQxMHZNR3NGSjRQc1NLSUJybmdhbGlmcUVMaEROVEY0Rkc4TTJ4Smt2bWNvcmUwb1ZSY25aTGI0REgiLCJtYWMiOiIyMmIwMWUyMzRiNmY5YWEzNzJlZDc4MjBkNzJjNzBhOTdjMTM3ODBhZTkxYWMwNTJlMTEyYzFkN2MxY2ZlNzViIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 204,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST livewire\/message\/{name}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "livewire\/message\/:name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/livewire\/message\/:name",
+                            "variable": [
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "qui",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST {locale}\/livewire\/message\/{name}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": ":locale\/livewire\/message\/:name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/:locale\/livewire\/message\/:name",
+                            "variable": [
+                                {
+                                    "id": "locale",
+                                    "key": "locale",
+                                    "value": "cy_GB",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "aut",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST livewire\/upload-file",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "livewire\/upload-file",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/livewire\/upload-file"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET livewire\/preview-file\/{filename}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "livewire\/preview-file\/:filename",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/livewire\/preview-file\/:filename",
+                            "variable": [
+                                {
+                                    "id": "filename",
+                                    "key": "filename",
+                                    "value": "quia",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IlR3NUx2SGE0eHYzay8zZUFSQkFETHc9PSIsInZhbHVlIjoibWhnb3FiaTVNSWhkamlHTWYvN05iWGJoRGNvNmYyeU1JckplZ3F2dVlEbnNHUis3dDI5WGJsWnR0VTBZRXo3MFFMZk4ySTN3LzhjOUdJWjh2Uzc2YzBWdmNhc0kwMUdpdGF3ZnJiVzl5N2tweTFuMksvekliYktkamNlU1JOYS8iLCJtYWMiOiIxZTcxNzZkNzYzNjlmNDFhMDAxZmRiMjI4ZTVhMDM0YmU5YjcyOGE5MmMxNGU0NjM2OTI5OGQxYTk2YWQwMDZiIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6Ikd0dXNkbktiWWtCdEN0OGJXVVFmdWc9PSIsInZhbHVlIjoiVk1MRmJra3AySXI2Wno5bEtNVkdhZklvb0VxWXRzMWZCcWM0S21tcVVtQytCOGRvWURjLzBHYWpwNis4VTBxZ2RNSWpxZWNnODhtVUVOK2hKT3FoUDlBcXErYXp5M092VEM1ejFncXZCd2o3bWhTaHpXVmVrSXVsTkkybjlBTWQiLCJtYWMiOiJjZjAxYzdkYjI3OTc2OGI4NmM3YzIzZDhmZDllODNmNDIwMGNmMzJjYThlNzFjNTQzODlmODdiNDE1NjQ5YzE1IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET livewire\/livewire.js",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "livewire\/livewire.js",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/livewire\/livewire.js"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/javascript; charset=utf-8"
+                                },
+                                {
+                                    "key": "expires",
+                                    "value": "Sun, 14 Sep 2025 16:29:03 GMT"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "max-age=31536000, public"
+                                },
+                                {
+                                    "key": "accept-ranges",
+                                    "value": "bytes"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET livewire\/livewire.js.map",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "livewire\/livewire.js.map",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/livewire\/livewire.js.map"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/javascript; charset=utf-8"
+                                },
+                                {
+                                    "key": "expires",
+                                    "value": "Sun, 14 Sep 2025 16:29:03 GMT"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "max-age=31536000, public"
+                                },
+                                {
+                                    "key": "accept-ranges",
+                                    "value": "bytes"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET _ignition\/health-check",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_ignition\/health-check",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_ignition\/health-check"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST _ignition\/execute-solution",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_ignition\/execute-solution",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_ignition\/execute-solution"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"solution\":\"illum\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST _ignition\/update-config",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "_ignition\/update-config",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/_ignition\/update-config"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"theme\":\"dark\",\"editor\":\"voluptatum\",\"hide_solutions\":true}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "\/",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/\/"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "X-Inertia"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IjlScWpENitVVHBnM3JKbS9jRkl1U3c9PSIsInZhbHVlIjoiV1VBamx2cEVUTnIxRXNpWTBiRE5RQ01GTG04bTNHeXdoKzdFNHhCcXA3TW5uNnUzSnZUeGlCZ3RJdlFiZmF1V3kvVGNUYVd0dTI5V0JSS3ZlYWo0MlZvbmpSUzFGM2d6VVVRMjEwM2lmaXJCNENKY2svdUo4djFIL0lZZThpa08iLCJtYWMiOiI2NGIyZDkwOTYyYTk3ODAzMmI0NGE1MTZmODNiZTZkMzVkNDA1NzcyZmJiNDM4OTU2MmQ4NzUwMDZiMDM0MzAyIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6IldXSi9hTnYrZGZvdHgxNENReDNhWEE9PSIsInZhbHVlIjoiRlFTNFpoUG5tbkx1cGZ6MFp4Y3g4SjRvdE5SbmhIQ25WeDNpRU95ZXRNc2NpQzZ2U2M5OCtDU2c1Kzd0TTlCNjdFMzFiWW9QUXBMSFdhTG9mcnVDZVVHSzh5bjdQWlgySnRhZGRBSUF3YzNNT0tXZ1lxNlVkaVRNaExNelVKK2wiLCJtYWMiOiJkMjc0MmQzZTE3NmM5Y2MzNmNkYTRkMjNjYjIzMjQ4YTA1NDQxNGJkNWE0YWMzMDQ0YTU2MmQ1YzM3ZTlhZDgwIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"csrf-token\" content=\"pwLqInQzaCKUg4zlnmgkaCe9BUDAIDWiGzgK7Xmr\">\r\n\r\n        <title>AA\uc791\uc5c5<\/title>\r\n\r\n        <!-- Fonts -->\r\n        <link rel=\"preconnect\" href=\"https:\/\/fonts.bunny.net\">\r\n        <link href=\"https:\/\/fonts.bunny.net\/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" \/>\r\n\r\n        <!-- Scripts -->\r\n        <script type=\"module\" src=\"http:\/\/[::1]:5173\/@vite\/client\"><\/script><link rel=\"stylesheet\" href=\"http:\/\/[::1]:5173\/resources\/css\/app.css\" \/><script type=\"module\" src=\"http:\/\/[::1]:5173\/resources\/js\/app.js\"><\/script>    <\/head>\r\n    <body>\r\n        <div class=\"font-sans text-gray-900 antialiased\">\r\n            <div class=\"min-h-screen bg-gray-100 flex flex-col justify-center items-center\">\r\n        <div class=\"max-w-6xl mx-auto sm:px-6 lg:px-8\">\r\n            <div class=\"flex justify-center\">\r\n                <svg viewBox=\"0 0 317 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" class=\"w-20 h-20\">\r\n  <path d=\"M74.09 30.04V13h-4.14v21H82.1v-3.96h-8.01zM95.379 19v1.77c-1.08-1.35-2.7-2.19-4.89-2.19-3.99 0-7.29 3.45-7.29 7.92s3.3 7.92 7.29 7.92c2.19 0 3.81-.84 4.89-2.19V34h3.87V19h-3.87zm-4.17 11.73c-2.37 0-4.14-1.71-4.14-4.23 0-2.52 1.77-4.23 4.14-4.23 2.4 0 4.17 1.71 4.17 4.23 0 2.52-1.77 4.23-4.17 4.23zM106.628 21.58V19h-3.87v15h3.87v-7.17c0-3.15 2.55-4.05 4.56-3.81V18.7c-1.89 0-3.78.84-4.56 2.88zM124.295 19v1.77c-1.08-1.35-2.7-2.19-4.89-2.19-3.99 0-7.29 3.45-7.29 7.92s3.3 7.92 7.29 7.92c2.19 0 3.81-.84 4.89-2.19V34h3.87V19h-3.87zm-4.17 11.73c-2.37 0-4.14-1.71-4.14-4.23 0-2.52 1.77-4.23 4.14-4.23 2.4 0 4.17 1.71 4.17 4.23 0 2.52-1.77 4.23-4.17 4.23zM141.544 19l-3.66 10.5-3.63-10.5h-4.26l5.7 15h4.41l5.7-15h-4.26zM150.354 28.09h11.31c.09-.51.15-1.02.15-1.59 0-4.41-3.15-7.92-7.59-7.92-4.71 0-7.92 3.45-7.92 7.92s3.18 7.92 8.22 7.92c2.88 0 5.13-1.17 6.54-3.21l-3.12-1.8c-.66.87-1.86 1.5-3.36 1.5-2.04 0-3.69-.84-4.23-2.82zm-.06-3c.45-1.92 1.86-3.03 3.93-3.03 1.62 0 3.24.87 3.72 3.03h-7.65zM164.516 34h3.87V12.1h-3.87V34zM185.248 34.36c3.69 0 6.9-2.01 6.9-6.3V13h-2.1v15.06c0 3.03-2.07 4.26-4.8 4.26-2.19 0-3.93-.78-4.62-2.61l-1.77 1.05c1.05 2.43 3.57 3.6 6.39 3.6zM203.124 18.64c-4.65 0-7.83 3.45-7.83 7.86 0 4.53 3.24 7.86 7.98 7.86 3.03 0 5.34-1.41 6.6-3.45l-1.74-1.02c-.81 1.44-2.46 2.55-4.83 2.55-3.18 0-5.55-1.89-5.97-4.95h13.17c.03-.3.06-.63.06-.93 0-4.11-2.85-7.92-7.44-7.92zm0 1.92c2.58 0 4.98 1.71 5.4 5.01h-11.19c.39-2.94 2.64-5.01 5.79-5.01zM221.224 20.92V19h-4.32v-4.2l-1.98.6V19h-3.15v1.92h3.15v9.09c0 3.6 2.25 4.59 6.3 3.99v-1.74c-2.91.12-4.32.33-4.32-2.25v-9.09h4.32zM225.176 22.93c0-1.62 1.59-2.37 3.15-2.37 1.44 0 2.97.57 3.6 2.1l1.65-.96c-.87-1.86-2.79-3.06-5.25-3.06-3 0-5.13 1.89-5.13 4.29 0 5.52 8.76 3.39 8.76 7.11 0 1.77-1.68 2.4-3.45 2.4-2.01 0-3.57-.99-4.11-2.52l-1.68.99c.75 1.92 2.79 3.45 5.79 3.45 3.21 0 5.43-1.77 5.43-4.32 0-5.52-8.76-3.39-8.76-7.11zM244.603 20.92V19h-4.32v-4.2l-1.98.6V19h-3.15v1.92h3.15v9.09c0 3.6 2.25 4.59 6.3 3.99v-1.74c-2.91.12-4.32.33-4.32-2.25v-9.09h4.32zM249.883 21.49V19h-1.98v15h1.98v-8.34c0-3.72 2.34-4.98 4.74-4.98v-1.92c-1.92 0-3.69.63-4.74 2.73zM263.358 18.64c-4.65 0-7.83 3.45-7.83 7.86 0 4.53 3.24 7.86 7.98 7.86 3.03 0 5.34-1.41 6.6-3.45l-1.74-1.02c-.81 1.44-2.46 2.55-4.83 2.55-3.18 0-5.55-1.89-5.97-4.95h13.17c.03-.3.06-.63.06-.93 0-4.11-2.85-7.92-7.44-7.92zm0 1.92c2.58 0 4.98 1.71 5.4 5.01h-11.19c.39-2.94 2.64-5.01 5.79-5.01zM286.848 19v2.94c-1.26-2.01-3.39-3.3-6.06-3.3-4.23 0-7.74 3.42-7.74 7.86s3.51 7.86 7.74 7.86c2.67 0 4.8-1.29 6.06-3.3V34h1.98V19h-1.98zm-5.91 13.44c-3.33 0-5.91-2.61-5.91-5.94 0-3.33 2.58-5.94 5.91-5.94s5.91 2.61 5.91 5.94c0 3.33-2.58 5.94-5.91 5.94zM309.01 18.64c-1.92 0-3.75.87-4.86 2.73-.84-1.74-2.46-2.73-4.56-2.73-1.8 0-3.42.72-4.59 2.55V19h-1.98v15H295v-8.31c0-3.72 2.16-5.13 4.32-5.13 2.13 0 3.51 1.41 3.51 4.08V34h1.98v-8.31c0-3.72 1.86-5.13 4.17-5.13 2.13 0 3.66 1.41 3.66 4.08V34h1.98v-9.36c0-3.75-2.31-6-5.61-6z\" class=\"fill-black\"\/>\r\n  <path d=\"M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z\" fill=\"#6875F5\"\/>\r\n  <path d=\"M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z\" fill=\"#6875F5\"\/>\r\n<\/svg>\r\n            <\/div>\r\n\r\n            <div class=\"mt-8 bg-white overflow-hidden shadow sm:rounded-lg\">\r\n                <div class=\"p-6\">\r\n                    <h1 class=\"text-3xl font-bold text-gray-900 mb-4\">\r\n                        Welcome to AA\uc791\uc5c5\r\n                    <\/h1>\r\n                    <p class=\"text-gray-600\">\r\n                        This is a more detailed welcome page. You can customize it further based on your needs.\r\n                    <\/p>\r\n                <\/div>\r\n            <\/div>\r\n\r\n            <div class=\"flex justify-center mt-4 sm:items-center sm:justify-between\">\r\n                <div class=\"text-center text-sm text-gray-500 sm:text-left\">\r\n                    <div class=\"flex items-center\">\r\n                        <a href=\"http:\/\/localhost\/login\" class=\"ml-1 underline\">\r\n                            Log in\r\n                        <\/a>\r\n\r\n                                                    <a href=\"http:\/\/localhost\/register\" class=\"ml-4 underline\">\r\n                                Register\r\n                            <\/a>\r\n                                            <\/div>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>\r\n    <\/div>\r\n        <\/div>\r\n    <\/body>\r\n<\/html>\r\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET dashboard",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "dashboard",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/dashboard"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6Ild4V0s4cjBBbW53dk9rb2hzRjdCcXc9PSIsInZhbHVlIjoia1NxU1RkUUY1WUdvOTV3bTVyNmk0MGcwOE9VYWFsVDlTYmZuVzdXNThsWm9pUHBPRUpCdGVjSDBqRkJremNsZlpQTVcwdWJzeVE1RU9KMGx2dm1CVWEvOG9rUjFPKzNmYnBXUlVYQm1nYUZSQURSWFRueURXVmt2eVBLOHI3SDEiLCJtYWMiOiIzYTVhODE5OTdiMzg4YTZjZGM0ODI2ZmY1N2U1NWE5ZDY5NTQ4NmUyMzZkMzc4Njk3ZGU1YWZlNTg0YmZjNDc2IiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6InFMcHJlRC9oNy9vREZWVTRhVEQrZUE9PSIsInZhbHVlIjoiOElBdlhzRUpySEV0d0d2QVl5QmhxbVlmcEhnazFSMmM1bFlDWXpxNVFobWV0Q3FhYTFZS2ZhVGx5cHFySEs3K2JlR3ZwR3I4R2dJMzBNMWhZV3JHSUJkT2V5Y0hudVRYNTZocHZpMTZjUGZOR2xFT1pYd0hkUTV6dFFuVm92U08iLCJtYWMiOiJjZTA5MmViYTE3YmZmNzA5ZDY2MTUzODk1ZDYyMGNkMzA3NTZlNDJhYTYyMmFjNWQ5NDhjZjA0M2I3YmNkZGUzIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET admin\/dashboard",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "admin\/dashboard",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/admin\/dashboard"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6ImczMEdZR0hDK2NZWTgxcEx4UGRIOUE9PSIsInZhbHVlIjoibks4QkpKQlU1SWVySFpVOVJLbEROMFhjWERKMG1xaDhzRTNEWmlkZ1lHVEQ5dkpzNFd3Yytlei83c1lMMk1qY3lwUUkvMllLc1BjbFVzZXBZS2NjSFFxOVkzUXZhU09XMGRPTVBCRW1XbkYvcXhMNDJxUlowZnVMSHQrWjRnQ1giLCJtYWMiOiJiOTczYTViZDIzMjYzMGRhNmU3YzAyMjQ0MDExMjE4NzVmMGMyOGUzYjljMGQxOTRiNjM1ODFiYWQ1M2VjYWRkIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; samesite=lax; aa_session=eyJpdiI6IjFIVFIwb3JpcnRVTnNZVUg5K2xKMkE9PSIsInZhbHVlIjoiOGFidERRdUh4djM5TlR1K3ZBY0pJVExwN2ZRMWNybmNxSXQ0V0tSWndQVkhWV3NlWkN3YTIweHFCQ3ZJZ0FyemVLSkcwYUdnTktsRnAwNk9lamZyNDQ0SG9PVURPZFVGTHYrUlZjYTNyWXRXY3lsVDVFSVVNeGRCMXVpV25jMlMiLCJtYWMiOiJmZDFhMDUwNWE5NDNhMjQyYzQxNWM3NTBiNmUyNjQ2YTdkMGQzMGE1NjdlNDJiMDdkZjMxNTIwNDJiMDljNzZhIiwidGFnIjoiIn0%3D; expires=Sat, 14 Sep 2024 18:29:03 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
