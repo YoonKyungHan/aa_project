@@ -1,13 +1,23 @@
 @storybook([
     'args' => [
-        'label' => 'Button',
-        'type' => 'primary',
+        'slot' => 'Button',
+        'class' => 'primary',
+    ],
+    'argTypes' => [
+        'class' => [
+            'control' => 'select',
+            'options' => [
+                'primary' => 'primary',
+                'secondary' => 'secondary',
+                'danger' => 'danger',
+            ],
+        ],
     ]
 ])
- 
+
 <x-button.primary
-    :type="$type ?? null"
-    :label="$label ?? null"
->
-    {{ $label ?? null }}
+    :class="$class ?? 'primary'"
+    type="submit"
+    >
+    {{ $slot ?? 'test' }}
 </x-button.primary>

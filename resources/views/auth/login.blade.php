@@ -42,6 +42,7 @@
                 <x-button class="ml-4">
                     {{ __('Log in') }}
                 </x-button>
+
             </div>
         </form>
     </x-authentication-card>

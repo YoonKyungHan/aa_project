@@ -30,5 +30,7 @@
     @can('delete posts')
     <p>You can delete posts.</p>
     @endcan -->
-
+    <x-button.primary type="submit" class="danger">
+        test
+    </x-button.primary>
 </x-app-layout>

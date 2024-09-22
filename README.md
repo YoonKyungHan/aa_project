@@ -68,7 +68,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 # aa_project
 공통작업을위한 프로젝트
 
-실행에 필요한 명령어
+셋팅에 필요한 명령어
 
 composer install
 
@@ -79,3 +79,11 @@ php artisan migrate
 php artisan db:seed
 
 php artisan serve
+
+스토리북 실행
+// 서버 먼저켜야됨
+php artisan serve
+
+php artisan blast:publish
+
+// 스토리북 안되면 문의주세요

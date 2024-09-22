@@ -31,6 +31,12 @@
                     </div>
                 </div>
             </div>
+            <x-button.primary
+            :class="'primary'"
+            type="submit"
+            >
+            {{ 'ffftest' }}
+        </x-button.primary>
         </div>
     </div>
 </x-guest-layout>
